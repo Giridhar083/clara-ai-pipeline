@@ -1,0 +1,246 @@
+{
+  "name": "Clara AI — Full Pipeline (A + B)",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [80, 300]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Discover all demo transcript files\nconst fs = require('fs');\nconst path = require('path');\n\nconst demoDir = path.resolve('/data/inputs/demo');\nif (!fs.existsSync(demoDir)) {\n  throw new Error(`Demo directory not found: ${demoDir}`);\n}\n\nconst files = fs.readdirSync(demoDir)\n  .filter(f => f.endsWith('.txt'))\n  .map(f => ({\n    file_path: path.join(demoDir, f),\n    file_name: f,\n    account_id: f.replace('_demo.txt', ''),\n    pipeline: 'A'\n  }));\n\nreturn files.map(f => ({ json: f }));"
+      },
+      "id": "discover-demo-files",
+      "name": "Discover Demo Files",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [300, 200]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const fs = require('fs');\nconst item = $input.item.json;\n\nconst content = fs.readFileSync(item.file_path, 'utf8');\nreturn [{ json: { ...item, transcript: content } }];"
+      },
+      "id": "read-demo-transcript",
+      "name": "Read Demo Transcript",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [520, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.GROQ_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": []
+        },
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"llama-3.3-70b-versatile\",\n  \"temperature\": 0.1,\n  \"max_tokens\": 2500,\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are an expert at extracting structured business data from call transcripts for AI voice agent configuration. Return ONLY a valid JSON object. No markdown, no explanation.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Extract all available information from this transcript and return a JSON with: account_id, company_name, business_hours (days/start/end/timezone/exceptions), office_address, services_supported (list), emergency_definition (list), emergency_routing_rules (primary_contact_name, primary_contact_phone, secondary_contact_name, secondary_contact_phone, rings_before_fallback, fallback_instruction), non_emergency_routing_rules (action, callback_window, message_destination), call_transfer_rules (transfer_number, transfer_contact_name, timeout_rings, message_if_transfer_fails, callback_window_if_fails), special_routing_rules (list of trigger/action/contact_name/contact_phone), integration_constraints (list), pricing_instructions, after_hours_flow_summary, office_hours_flow_summary, tone_instructions, questions_or_unknowns (list), notes.\\n\\nAccount ID: {{ $json.account_id }}\\n\\nTRANSCRIPT:\\n{{ $json.transcript }}\\n\\nReturn ONLY JSON.\"\n    }\n  ]\n}"
+      },
+      "id": "groq-extract-demo",
+      "name": "Groq — Extract Demo Memo",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [740, 200]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const item = $input.item.json;\nconst accountId = item.account_id;\n\n// Parse LLM response\nlet raw = item.choices[0].message.content.trim();\nraw = raw.replace(/^```json\\s*/m, '').replace(/\\s*```$/m, '').trim();\n\nlet memo;\ntry {\n  memo = JSON.parse(raw);\n} catch (e) {\n  throw new Error(`JSON parse failed for ${accountId}: ${e.message}`);\n}\nmemo.account_id = accountId;\n\n// Ensure required list fields exist\n['services_supported','emergency_definition','integration_constraints',\n 'questions_or_unknowns','special_routing_rules'].forEach(f => {\n  if (!Array.isArray(memo[f])) memo[f] = memo[f] ? [memo[f]] : [];\n});\n\nreturn [{ json: { account_id: accountId, file_name: item.file_name, memo } }];"
+      },
+      "id": "parse-demo-memo",
+      "name": "Parse Demo Memo",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [960, 200]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const { account_id, file_name, memo } = $input.item.json;\n\n// ── Build system prompt ──────────────────────────────────\nconst company = memo.company_name || 'the company';\nconst bh = memo.business_hours || {};\nconst days = bh.days || 'Monday through Friday';\nconst start = bh.start || '8:00 AM';\nconst end = bh.end || '5:00 PM';\nconst tz = bh.timezone || 'local time';\nconst exc = bh.exceptions || null;\n\nconst tzMap = {\n  'America/Chicago':'CT','America/New_York':'ET','America/Denver':'MT',\n  'America/Los_Angeles':'PT','America/Phoenix':'MST'\n};\nconst tzAbbr = tzMap[tz] || tz;\n\nconst hrs = `${days} from ${start} to ${end} ${tzAbbr}` + (exc ? `, with ${exc}` : '');\n\nconst er = memo.emergency_routing_rules || {};\nconst tr = memo.call_transfer_rules || {};\nconst ne = memo.non_emergency_routing_rules || {};\nconst services = (memo.services_supported || []).join(', ') || 'a range of services';\nconst emrgDef = (memo.emergency_definition || []).join('; ') || 'urgent safety situations';\nconst pricing = memo.pricing_instructions || 'do not quote specific prices; a team member will provide an exact quote';\nconst tone = memo.tone_instructions || 'professional, friendly, and helpful';\n\nconst specialRules = (memo.special_routing_rules || []).map(r =>\n  `- If caller mentions ${r.trigger}: ${r.action}${r.contact_name ? ` (Contact: ${r.contact_name}${r.contact_phone ? ' at ' + r.contact_phone : ''})` : ''}`\n).join('\\n');\n\nconst systemPrompt = `# ${company} AI Receptionist — System Prompt\n\n## IDENTITY\nYou are a professional, friendly receptionist for ${company}. You answer calls on their behalf, help callers with their needs, and connect them with the right team.\n\n## TONE\n${tone}\n\n## BUSINESS INFORMATION\n- Company: ${company}\n- Address: ${memo.office_address || 'our office'}\n- Services: ${services}\n- Business Hours: ${hrs}\n\n## PRICING POLICY\n${pricing}\n\n---\n\n## DURING BUSINESS HOURS — CALL FLOW\n\n**Step 1 — Greeting**\n\"Thank you for calling ${company}, how can I help you today?\"\n\n**Step 2 — Collect information (only what is needed)**\n- Caller full name\n- Callback phone number\n- Service address\n- Brief description of issue or request\n\n**Step 3 — Transfer**\nSay: \"Let me connect you with ${tr.transfer_contact_name || 'our team'} right now.\"\nInitiate transfer to ${tr.transfer_number || '[DISPATCH NUMBER]'}.\n\n**Step 4 — If Transfer Fails**\nSay: \"${tr.message_if_transfer_fails || 'I was unable to connect you directly, but someone will call you back shortly'}. Someone will reach you within ${tr.callback_window_if_fails || 'as soon as possible'}.\"\nConfirm name and number before closing.\n\n**Step 5 — Confirm next steps, ask \"anything else\", close warmly.**\n\n---\n\n## AFTER HOURS — CALL FLOW\n\n**Step 1 — Greeting**\n\"Thank you for calling ${company}. Our office is currently closed. I'm here to help — what's going on?\"\n\n**Step 2 — Determine if emergency**\nEmergencies include: ${emrgDef}\nAsk: \"Is this something that needs immediate attention tonight, or can it wait until we open?\"\n\n**Step 3a — IF EMERGENCY:**\nCollect: full name, callback number, service address, brief description.\nSay: \"Let me connect you with our on-call team right now.\"\nTransfer to ${er.primary_contact_name || 'on-call'} at ${er.primary_contact_phone || '[EMERGENCY NUMBER]'}.\n${er.secondary_contact_phone ? `If no answer, try ${er.secondary_contact_name || 'backup'} at ${er.secondary_contact_phone}.` : ''}\nIf no answer after ${er.rings_before_fallback || 3} rings: \"${er.fallback_instruction || 'Our on-call team has been alerted and will call you back as quickly as possible.'}\"\n\n**Step 3b — IF NOT EMERGENCY:**\n${ne.action || 'Take a message'}.\nConfirm: \"Our team will be in touch ${ne.callback_window || 'during business hours'}.\"\n\n**Step 4 — Ask \"anything else\", close warmly.**\n\n---\n${specialRules ? '## SPECIAL ROUTING RULES\\n' + specialRules + '\\n---' : ''}\n\n## RULES\n1. Never mention function calls, tools, or system actions to callers.\n2. Never quote specific prices or commit to appointment times.\n3. Only collect: name, phone, address, issue. Do not ask unnecessary questions.\n4. If unsure about a specific question, say our team will address it on callback.\n5. Always confirm collected info before ending the call.\n6. Always end with: \"Is there anything else I can help you with?\"\n`;\n\n// ── Build full agent spec ───────────────────────────────\nconst agentSpec = {\n  agent_name: `${company} - Clara AI Agent`,\n  account_id,\n  version: 'v1',\n  voice_style: {\n    provider: 'elevenlabs',\n    voice_id: 'rachel',\n    style: 'friendly and professional',\n    speed: 1.0,\n    custom_note: tone\n  },\n  system_prompt: systemPrompt,\n  key_variables: {\n    company_name: company,\n    timezone: tz,\n    timezone_abbr: tzAbbr,\n    business_hours_days: days,\n    business_hours_start: start,\n    business_hours_end: end,\n    business_hours_exceptions: exc,\n    office_address: memo.office_address,\n    primary_emergency_contact_name: er.primary_contact_name,\n    primary_emergency_contact_phone: er.primary_contact_phone,\n    secondary_emergency_contact_name: er.secondary_contact_name,\n    secondary_emergency_contact_phone: er.secondary_contact_phone,\n    transfer_number: tr.transfer_number,\n    transfer_contact_name: tr.transfer_contact_name\n  },\n  tool_invocation_placeholders: {\n    note: 'Do NOT mention tool calls, function names, or system actions to callers.',\n    transfer_call: {\n      trigger: 'caller needs to reach dispatch or team member',\n      action: 'transfer_call',\n      number: tr.transfer_number,\n      caller_message: `One moment while I connect you with ${tr.transfer_contact_name || 'our team'}.`\n    },\n    send_sms: {\n      trigger: 'caller needs a callback or agent takes a message',\n      action: 'send_sms_to_team',\n      note: 'Send message to team without disclosing this to caller'\n    }\n  },\n  call_transfer_protocol: {\n    primary_transfer_number: tr.transfer_number,\n    contact_name: tr.transfer_contact_name,\n    timeout_rings: tr.timeout_rings || 4,\n    on_transfer_fail: tr.message_if_transfer_fails,\n    callback_window_if_fails: tr.callback_window_if_fails,\n    what_to_collect_before_transfer: ['caller full name','callback phone number','service address','brief description of issue']\n  },\n  fallback_protocol: {\n    trigger: 'transfer fails after timeout_rings',\n    action: [\n      'Apologize for the inconvenience',\n      `Say: '${tr.message_if_transfer_fails || \"I was unable to connect you but someone will call you back shortly\"}'`,\n      'Confirm their name and number',\n      `Assure callback within ${tr.callback_window_if_fails || 'as soon as possible'}`,\n      'Ask if there is anything else before closing'\n    ]\n  },\n  emergency_protocol: {\n    definition: memo.emergency_definition || [],\n    primary_transfer: { name: er.primary_contact_name, phone: er.primary_contact_phone, rings_before_fallback: er.rings_before_fallback || 3 },\n    secondary_transfer: er.secondary_contact_phone ? { name: er.secondary_contact_name, phone: er.secondary_contact_phone } : null,\n    if_no_answer: er.fallback_instruction\n  },\n  conversation_hygiene: {\n    max_info_to_collect: ['name','callback number','address','issue description'],\n    never_say: ['function call','tool','transfer function','system','I am an AI','I am a bot'],\n    pricing_policy: pricing,\n    always_end_with: 'Is there anything else I can help you with before I let you go?'\n  }\n};\n\nreturn [{ json: { account_id, memo, agent_spec: agentSpec } }];"
+      },
+      "id": "generate-agent-spec-v1",
+      "name": "Generate Agent Spec v1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1180, 200]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const fs = require('fs');\nconst path = require('path');\nconst { account_id, memo, agent_spec } = $input.item.json;\n\nconst outDir = path.resolve(`/data/outputs/accounts/${account_id}/v1`);\nfs.mkdirSync(outDir, { recursive: true });\n\nconst memoPath = path.join(outDir, 'memo.json');\nconst specPath = path.join(outDir, 'agent_spec.json');\n\nfs.writeFileSync(memoPath, JSON.stringify(memo, null, 2));\nfs.writeFileSync(specPath, JSON.stringify(agent_spec, null, 2));\n\nconsole.log(`Saved: ${memoPath}`);\nconsole.log(`Saved: ${specPath}`);\n\nreturn [{ json: {\n  status: 'success',\n  pipeline: 'A',\n  account_id,\n  company_name: memo.company_name,\n  version: 'v1',\n  memo_path: memoPath,\n  agent_spec_path: specPath\n}}];"
+      },
+      "id": "save-v1-outputs",
+      "name": "Save v1 Outputs",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1400, 200]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Create local task record\nconst fs = require('fs');\nconst path = require('path');\nconst item = $input.item.json;\n\nconst tasksPath = path.resolve('/data/outputs/tasks.json');\nlet tasks = [];\ntry {\n  if (fs.existsSync(tasksPath)) {\n    tasks = JSON.parse(fs.readFileSync(tasksPath, 'utf8'));\n  }\n} catch(e) { tasks = []; }\n\nconst taskId = `${item.account_id}_A_v1_${new Date().toISOString().slice(0,10)}`;\nconst task = {\n  task_id: taskId,\n  account_id: item.account_id,\n  company_name: item.company_name,\n  pipeline: 'A',\n  version: 'v1',\n  status: item.status,\n  created_at: new Date().toISOString(),\n  output_files: {\n    memo: item.memo_path,\n    agent_spec: item.agent_spec_path\n  }\n};\n\ntasks = tasks.filter(t => t.task_id !== taskId);\ntasks.push(task);\nfs.mkdirSync(path.dirname(tasksPath), { recursive: true });\nfs.writeFileSync(tasksPath, JSON.stringify(tasks, null, 2));\n\nreturn [{ json: { ...item, task_id: taskId } }];"
+      },
+      "id": "create-task-a",
+      "name": "Create Task (Pipeline A)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1620, 200]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const fs = require('fs');\nconst path = require('path');\n\nconst onboardingDir = path.resolve('/data/inputs/onboarding');\nif (!fs.existsSync(onboardingDir)) {\n  throw new Error(`Onboarding directory not found: ${onboardingDir}`);\n}\n\nconst files = fs.readdirSync(onboardingDir)\n  .filter(f => f.endsWith('.txt'))\n  .map(f => ({\n    file_path: path.join(onboardingDir, f),\n    file_name: f,\n    account_id: f.replace('_onboarding.txt', ''),\n    pipeline: 'B'\n  }));\n\nreturn files.map(f => ({ json: f }));"
+      },
+      "id": "discover-onboarding-files",
+      "name": "Discover Onboarding Files",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [300, 500]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const fs = require('fs');\nconst path = require('path');\nconst item = $input.item.json;\n\n// Read onboarding transcript\nconst transcript = fs.readFileSync(item.file_path, 'utf8');\n\n// Load v1 memo\nconst v1Path = path.resolve(`/data/outputs/accounts/${item.account_id}/v1/memo.json`);\nif (!fs.existsSync(v1Path)) {\n  throw new Error(`v1 memo not found for ${item.account_id}. Run Pipeline A first.`);\n}\nconst v1Memo = JSON.parse(fs.readFileSync(v1Path, 'utf8'));\n\nreturn [{ json: { ...item, transcript, v1_memo: v1Memo } }];"
+      },
+      "id": "read-onboarding-and-v1",
+      "name": "Read Onboarding + v1 Memo",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [520, 500]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.GROQ_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"llama-3.3-70b-versatile\",\n  \"temperature\": 0.1,\n  \"max_tokens\": 2500,\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are updating an existing AI voice agent configuration based on a new onboarding call. Return ONLY a valid JSON object. No markdown, no explanation.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Apply ALL changes from the onboarding transcript to the existing v1 config. Keep unchanged fields exactly as-is. Do NOT invent information.\\n\\nEXISTING v1 CONFIG:\\n{{ JSON.stringify($json.v1_memo, null, 2) }}\\n\\nONBOARDING TRANSCRIPT:\\n{{ $json.transcript }}\\n\\nReturn the complete updated JSON object.\"\n    }\n  ]\n}"
+      },
+      "id": "groq-patch-onboarding",
+      "name": "Groq — Patch Onboarding Memo",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [740, 500]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const item = $input.item.json;\nconst accountId = item.account_id;\nconst v1Memo = item.v1_memo;\n\nlet raw = item.choices[0].message.content.trim();\nraw = raw.replace(/^```json\\s*/m, '').replace(/\\s*```$/m, '').trim();\n\nlet v2Memo;\ntry {\n  v2Memo = JSON.parse(raw);\n} catch (e) {\n  throw new Error(`JSON parse failed for ${accountId} v2: ${e.message}`);\n}\nv2Memo.account_id = accountId;\n\n['services_supported','emergency_definition','integration_constraints',\n 'questions_or_unknowns','special_routing_rules'].forEach(f => {\n  if (!Array.isArray(v2Memo[f])) v2Memo[f] = v2Memo[f] ? [v2Memo[f]] : [];\n});\n\n// ── Compute changelog ──────────────────────────────────\nfunction diffValues(v1, v2, path, changes) {\n  if (typeof v1 === 'object' && v1 !== null && typeof v2 === 'object' && v2 !== null &&\n      !Array.isArray(v1) && !Array.isArray(v2)) {\n    const keys = new Set([...Object.keys(v1), ...Object.keys(v2)]);\n    keys.forEach(k => diffValues(v1[k], v2[k], path ? `${path}.${k}` : k, changes));\n  } else if (Array.isArray(v1) && Array.isArray(v2)) {\n    const v1s = v1.filter(x => typeof x !== 'object');\n    const v2s = v2.filter(x => typeof x !== 'object');\n    const added = v2s.filter(x => !v1s.includes(x));\n    const removed = v1s.filter(x => !v2s.includes(x));\n    if (added.length) changes.push({ field: path, change_type: 'items_added', added, reason: 'Updated during onboarding' });\n    if (removed.length) changes.push({ field: path, change_type: 'items_removed', removed, reason: 'Updated during onboarding' });\n  } else if (v1 !== v2) {\n    const type = v1 === null || v1 === undefined ? 'field_added' : v2 === null || v2 === undefined ? 'field_cleared' : 'value_updated';\n    changes.push({ field: path, change_type: type, old_value: v1, new_value: v2, reason: 'Updated during onboarding call' });\n  }\n}\n\nconst changes = [];\ndiffValues(v1Memo, v2Memo, '', changes);\n\nconst changesJson = {\n  account_id: accountId,\n  company_name: v2Memo.company_name,\n  version_from: 'v1',\n  version_to: 'v2',\n  generated_at: new Date().toISOString(),\n  total_changes: changes.length,\n  changes\n};\n\n// ── Build markdown changelog ───────────────────────────\nlet md = `# Changelog — ${v2Memo.company_name || accountId}\\n`;\nmd += `**Account ID:** \\`${accountId}\\`  \\n`;\nmd += `**Version:** v1 → v2  \\n`;\nmd += `**Generated:** ${changesJson.generated_at}  \\n`;\nmd += `**Total Changes:** ${changes.length}\\n\\n---\\n\\n## Changes\\n\\n`;\n\nif (changes.length === 0) {\n  md += '_No changes detected._\\n';\n} else {\n  changes.forEach(c => {\n    md += `### \\`${c.field}\\`\\n`;\n    md += `- **Type:** ${c.change_type}\\n`;\n    if (c.old_value !== undefined) md += `- **Old:** \\`${JSON.stringify(c.old_value)}\\`\\n`;\n    if (c.new_value !== undefined) md += `- **New:** \\`${JSON.stringify(c.new_value)}\\`\\n`;\n    if (c.added) md += `- **Added:** ${JSON.stringify(c.added)}\\n`;\n    if (c.removed) md += `- **Removed:** ${JSON.stringify(c.removed)}\\n`;\n    md += `- **Reason:** ${c.reason}\\n\\n`;\n  });\n}\n\nreturn [{ json: { account_id: accountId, v1_memo: v1Memo, v2_memo: v2Memo, changes_json: changesJson, changes_md: md } }];"
+      },
+      "id": "parse-patch-and-changelog",
+      "name": "Parse Patch + Build Changelog",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [960, 500]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const fs = require('fs');\nconst path = require('path');\nconst { account_id, v2_memo, changes_json, changes_md } = $input.item.json;\n\n// Regenerate agent spec v2 (same logic as v1 but version=v2)\nconst memo = v2_memo;\nconst company = memo.company_name || 'the company';\nconst bh = memo.business_hours || {};\nconst days = bh.days || 'Monday through Friday';\nconst start = bh.start || '8:00 AM';\nconst end = bh.end || '5:00 PM';\nconst tz = bh.timezone || 'local time';\nconst exc = bh.exceptions || null;\nconst tzMap = {'America/Chicago':'CT','America/New_York':'ET','America/Denver':'MT','America/Los_Angeles':'PT','America/Phoenix':'MST'};\nconst tzAbbr = tzMap[tz] || tz;\nconst hrs = `${days} from ${start} to ${end} ${tzAbbr}` + (exc ? `, with ${exc}` : '');\nconst er = memo.emergency_routing_rules || {};\nconst tr = memo.call_transfer_rules || {};\nconst ne = memo.non_emergency_routing_rules || {};\nconst services = (memo.services_supported || []).join(', ') || 'a range of services';\nconst emrgDef = (memo.emergency_definition || []).join('; ') || 'urgent safety situations';\nconst pricing = memo.pricing_instructions || 'do not quote specific prices';\nconst tone = memo.tone_instructions || 'professional, friendly, and helpful';\nconst specialRules = (memo.special_routing_rules || []).map(r =>\n  `- If caller mentions ${r.trigger}: ${r.action}${r.contact_name ? ` (${r.contact_name}${r.contact_phone?' at '+r.contact_phone:''})`:''}`\n).join('\\n');\n\nconst systemPrompt = `# ${company} AI Receptionist (v2)\\n\\n## IDENTITY\\nYou are a professional receptionist for ${company}.\\n\\n## TONE\\n${tone}\\n\\n## BUSINESS HOURS\\n${hrs}\\n## ADDRESS\\n${memo.office_address || 'our office'}\\n## SERVICES\\n${services}\\n## PRICING\\n${pricing}\\n\\n## BUSINESS HOURS CALL FLOW\\n1. Greet: \"Thank you for calling ${company}, how can I help?\"\\n2. Collect: full name, callback number, service address, issue description.\\n3. Transfer to ${tr.transfer_contact_name||'our team'} at ${tr.transfer_number||'[DISPATCH]'}.\\n4. If transfer fails: \"${tr.message_if_transfer_fails||'Someone will call you back shortly'}.\" Confirm name+number. Callback within ${tr.callback_window_if_fails||'as soon as possible'}.\\n5. Confirm next steps. Ask \"anything else?\". Close warmly.\\n\\n## AFTER HOURS CALL FLOW\\n1. Greet: \"Thank you for calling ${company}. Our office is closed. How can I help?\"\\n2. Assess: Is this an emergency? Emergencies: ${emrgDef}\\n3a. EMERGENCY: Collect name, number, address, description. Transfer to ${er.primary_contact_name||'on-call'} at ${er.primary_contact_phone||'[EMERGENCY]'}. ${er.secondary_contact_phone?'Backup: '+er.secondary_contact_name+' at '+er.secondary_contact_phone+'.':''} If no answer: \"${er.fallback_instruction||'Our team will call you back very shortly.'}\"\\n3b. NOT EMERGENCY: ${ne.action||'Take message'}. Callback ${ne.callback_window||'next business day'}.\\n4. Ask \"anything else?\". Close warmly.\\n\\n${specialRules?'## SPECIAL ROUTING\\n'+specialRules+'\\n':''}\\n## RULES\\n- Never mention tools, functions, or system actions.\\n- Never quote prices or promise appointment times.\\n- Only collect: name, phone, address, issue.\\n- Always confirm info before ending.\\n- Always end: \"Is there anything else I can help you with?\"`;\n\nconst agentSpec = {\n  agent_name: `${company} - Clara AI Agent`,\n  account_id,\n  version: 'v2',\n  voice_style: { provider: 'elevenlabs', voice_id: 'rachel', style: 'friendly and professional', speed: 1.0, custom_note: tone },\n  system_prompt: systemPrompt,\n  key_variables: {\n    company_name: company, timezone: tz, timezone_abbr: tzAbbr,\n    business_hours_days: days, business_hours_start: start, business_hours_end: end,\n    business_hours_exceptions: exc, office_address: memo.office_address,\n    primary_emergency_contact_name: er.primary_contact_name, primary_emergency_contact_phone: er.primary_contact_phone,\n    secondary_emergency_contact_name: er.secondary_contact_name, secondary_emergency_contact_phone: er.secondary_contact_phone,\n    transfer_number: tr.transfer_number, transfer_contact_name: tr.transfer_contact_name\n  },\n  tool_invocation_placeholders: { note: 'Do NOT mention tool calls or system actions to callers.' },\n  call_transfer_protocol: { primary_transfer_number: tr.transfer_number, contact_name: tr.transfer_contact_name, timeout_rings: tr.timeout_rings||4, on_transfer_fail: tr.message_if_transfer_fails },\n  emergency_protocol: { definition: memo.emergency_definition||[], primary_transfer: {name:er.primary_contact_name,phone:er.primary_contact_phone}, secondary_transfer: er.secondary_contact_phone?{name:er.secondary_contact_name,phone:er.secondary_contact_phone}:null },\n  conversation_hygiene: { max_info_to_collect:['name','callback number','address','issue'], never_say:['function call','tool','system','I am an AI'], pricing_policy:pricing, always_end_with:'Is there anything else I can help you with?' }\n};\n\n// Save outputs\nconst v2Dir = path.resolve(`/data/outputs/accounts/${account_id}/v2`);\nconst changelogDir = path.resolve('/data/changelog');\nfs.mkdirSync(v2Dir, { recursive: true });\nfs.mkdirSync(changelogDir, { recursive: true });\n\nconst memoPath = path.join(v2Dir, 'memo.json');\nconst specPath = path.join(v2Dir, 'agent_spec.json');\nconst changesJsonPath = path.join(v2Dir, 'changes.json');\nconst changesMdPath = path.join(changelogDir, `${account_id}_changes.md`);\n\nfs.writeFileSync(memoPath, JSON.stringify(v2_memo, null, 2));\nfs.writeFileSync(specPath, JSON.stringify(agentSpec, null, 2));\nfs.writeFileSync(changesJsonPath, JSON.stringify(changes_json, null, 2));\nfs.writeFileSync(changesMdPath, changes_md);\n\nreturn [{ json: { status:'success', pipeline:'B', account_id, company_name: v2_memo.company_name, version:'v2', total_changes: changes_json.total_changes, memo_path:memoPath, agent_spec_path:specPath, changes_json_path:changesJsonPath, changes_md_path:changesMdPath } }];"
+      },
+      "id": "save-v2-outputs",
+      "name": "Generate + Save v2 Outputs",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1180, 500]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const fs = require('fs');\nconst path = require('path');\nconst item = $input.item.json;\n\nconst tasksPath = path.resolve('/data/outputs/tasks.json');\nlet tasks = [];\ntry {\n  if (fs.existsSync(tasksPath)) tasks = JSON.parse(fs.readFileSync(tasksPath, 'utf8'));\n} catch(e) { tasks = []; }\n\nconst taskId = `${item.account_id}_B_v2_${new Date().toISOString().slice(0,10)}`;\nconst task = {\n  task_id: taskId,\n  account_id: item.account_id,\n  company_name: item.company_name,\n  pipeline: 'B',\n  version: 'v2',\n  status: item.status,\n  total_changes: item.total_changes,\n  created_at: new Date().toISOString(),\n  output_files: { memo_v2: item.memo_path, agent_spec_v2: item.agent_spec_path, changes_json: item.changes_json_path, changes_md: item.changes_md_path }\n};\n\ntasks = tasks.filter(t => t.task_id !== taskId);\ntasks.push(task);\nfs.writeFileSync(tasksPath, JSON.stringify(tasks, null, 2));\n\nreturn [{ json: { ...item, task_id: taskId } }];"
+      },
+      "id": "create-task-b",
+      "name": "Create Task (Pipeline B)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1400, 500]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          { "node": "Discover Demo Files", "type": "main", "index": 0 },
+          { "node": "Discover Onboarding Files", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Discover Demo Files": {
+      "main": [[{ "node": "Read Demo Transcript", "type": "main", "index": 0 }]]
+    },
+    "Read Demo Transcript": {
+      "main": [[{ "node": "Groq — Extract Demo Memo", "type": "main", "index": 0 }]]
+    },
+    "Groq — Extract Demo Memo": {
+      "main": [[{ "node": "Parse Demo Memo", "type": "main", "index": 0 }]]
+    },
+    "Parse Demo Memo": {
+      "main": [[{ "node": "Generate Agent Spec v1", "type": "main", "index": 0 }]]
+    },
+    "Generate Agent Spec v1": {
+      "main": [[{ "node": "Save v1 Outputs", "type": "main", "index": 0 }]]
+    },
+    "Save v1 Outputs": {
+      "main": [[{ "node": "Create Task (Pipeline A)", "type": "main", "index": 0 }]]
+    },
+    "Discover Onboarding Files": {
+      "main": [[{ "node": "Read Onboarding + v1 Memo", "type": "main", "index": 0 }]]
+    },
+    "Read Onboarding + v1 Memo": {
+      "main": [[{ "node": "Groq — Patch Onboarding Memo", "type": "main", "index": 0 }]]
+    },
+    "Groq — Patch Onboarding Memo": {
+      "main": [[{ "node": "Parse Patch + Build Changelog", "type": "main", "index": 0 }]]
+    },
+    "Parse Patch + Build Changelog": {
+      "main": [[{ "node": "Generate + Save v2 Outputs", "type": "main", "index": 0 }]]
+    },
+    "Generate + Save v2 Outputs": {
+      "main": [[{ "node": "Create Task (Pipeline B)", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1.0.0",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "id": "clara-ai-full-pipeline",
+  "tags": [{ "name": "clara-ai" }]
+}

@@ -1,0 +1,51 @@
+DEMO CALL TRANSCRIPT
+Account ID: account_003
+Date: 2024-01-17
+Duration: 20 minutes
+Participants: Sales Rep (Clara AI), Kevin Park (Owner - GreenGuard Irrigation & Sprinklers)
+
+---
+
+Sales Rep: Kevin, thanks for your time today. Tell me about GreenGuard and what you're looking to solve.
+
+Kevin: Sure. We're a sprinkler and irrigation company in the Chicago area - Naperville specifically. We install, repair, and winterize irrigation systems. It's a very seasonal business - we're slammed in spring and fall, pretty quiet in winter. We've got 6 technicians.
+
+Sales Rep: And your business hours?
+
+Kevin: So it depends on the season. March through November we're Monday through Saturday, 7 AM to 6 PM. December through February, Monday through Friday only, 8 AM to 4 PM. Central time. The agent should probably just ask if we're closed or check the schedule somehow.
+
+Sales Rep: We can set it up with seasonal business hours. Do you do any after-hours emergency handling?
+
+Kevin: Honestly, irrigation isn't usually an emergency. The one exception is if a main line is broken and water is visibly flooding - that's an emergency because of the water damage risk and potential water bill spike. So yes, but only for active flooding situations.
+
+Sales Rep: And who handles that?
+
+Kevin: Call me directly - Kevin Park, 630-555-0166. If I don't pick up, leave a detailed voicemail and I'll call back within 20 minutes. We don't have a second on-call person, just me.
+
+Sales Rep: During business hours, how do you want calls handled?
+
+Kevin: Collect name, phone, address, and what they need - install quote, repair, winterization, or spring startup. Then transfer to our office at 630-555-0070. If no answer within 4 rings, take a message and we'll call back within 2 hours during peak season or end of day in off-season.
+
+Sales Rep: What services should the agent know about?
+
+Kevin: New system installation, system repair, annual startup, winterization blowout, backflow testing, drip irrigation, and smart controller upgrades.
+
+Sales Rep: Software you use?
+
+Kevin: We use ServiceTrade for job management. Do NOT create jobs in ServiceTrade - that's our office coordinator's job. Also please don't book anything on our Google calendar directly.
+
+Sales Rep: Your address?
+
+Kevin: 1847 Ogden Avenue, Naperville, IL 60540.
+
+Sales Rep: Anything special about how you want calls handled?
+
+Kevin: During spring - like April and May - we get hundreds of calls for spring startup. The agent should let callers know we're booking out several weeks and ask if they want to be added to the waitlist. Also for winterization in October, same thing - we're always fully booked, just collect info and add to the list. Don't promise a specific date.
+
+Sales Rep: Got it. Anything else?
+
+Kevin: If someone calls asking about a property we did work for but they're a new owner, make sure to get the new owner's name and contact and tell them we'll pull up the system history. That's helpful for us.
+
+Sales Rep: Perfect. I think I have a clear picture. Let me recap everything we've covered...
+
+[Summary and closing - 4 minutes]

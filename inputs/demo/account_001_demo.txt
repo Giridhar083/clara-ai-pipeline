@@ -1,0 +1,55 @@
+DEMO CALL TRANSCRIPT
+Account ID: account_001
+Date: 2024-01-15
+Duration: 22 minutes
+Participants: Sales Rep (Clara AI), Mike Henderson (Owner - Arctic Air HVAC)
+
+---
+
+Sales Rep: Hi Mike, thanks for jumping on the call today. I wanted to walk you through how Clara AI can handle your inbound calls for Arctic Air HVAC. Can you tell me a little about your current call situation?
+
+Mike: Sure, yeah. So we're a residential and light commercial HVAC company based out of Dallas. We've got about 12 technicians and we get probably 60-80 calls a day during the summer. My office manager is just completely overwhelmed.
+
+Sales Rep: That makes total sense. And what are your normal business hours?
+
+Mike: We're open Monday through Friday, 8 AM to 6 PM, and Saturday 9 to 2. We're closed Sundays. Central time obviously.
+
+Sales Rep: Great. And do you offer any kind of after-hours emergency service?
+
+Mike: Yeah, absolutely. We do 24/7 emergency service. If someone's AC goes out in July in Dallas, that's a real emergency. We charge extra for after-hours of course.
+
+Sales Rep: What would you consider a true emergency? Like what kinds of calls should be escalated immediately after hours?
+
+Mike: Good question. So if a system is completely down and it's like over 95 degrees outside, that's an emergency. Or if there's a refrigerant leak - that can actually be dangerous. Also if it's a commercial client who has like a server room or a restaurant with food at risk, that's always an emergency regardless of what's wrong.
+
+Sales Rep: And who gets the emergency call after hours?
+
+Mike: First call goes to my lead tech, Dave Kowalski, his cell is 214-555-0187. If he doesn't pick up within 2 rings, try my other senior tech, Rosa Martinez at 214-555-0294. If neither answers, the caller should be told we'll call back within 15 minutes and I personally get a text alert.
+
+Sales Rep: Perfect. And during business hours, how do you want calls handled?
+
+Mike: During hours, the agent should be friendly, get the customer's name, their address, what the issue is, and whether it's a repair or a new install. Then transfer to our dispatch line at 214-555-0100. If dispatch doesn't pick up, take a message and we'll call back within the hour.
+
+Sales Rep: What services do you offer? Just so the agent knows what to confirm for.
+
+Mike: HVAC repair, HVAC installation, preventive maintenance contracts, duct cleaning, thermostat installation and programming, and air quality testing.
+
+Sales Rep: Do you use any service management software?
+
+Mike: Yeah we use ServiceTitan. The agent should never try to create jobs in ServiceTitan though - that's our dispatcher's job. Just collect info and transfer or take a message.
+
+Sales Rep: And your office address?
+
+Mike: 4821 Commerce Street, Dallas, TX 75226.
+
+Sales Rep: Any other instructions or things the agent should know?
+
+Mike: Yeah - don't promise any specific pricing over the phone. Just say pricing varies and a tech will give an exact quote. Also don't commit to same-day appointments, just say we'll do our best to get someone out quickly.
+
+Sales Rep: Got it. Anything else that would be helpful?
+
+Mike: Hmm, if someone asks about our maintenance contracts, tell them to ask to speak to our sales team specifically. That's a different workflow than a regular service call.
+
+Sales Rep: Perfect. I think we have everything we need to set this up. Let me summarize what I've got and we can confirm...
+
+[Summary and closing discussion - 4 minutes]

@@ -1,0 +1,59 @@
+DEMO CALL TRANSCRIPT
+Account ID: account_002
+Date: 2024-01-16
+Duration: 18 minutes
+Participants: Sales Rep (Clara AI), Sandra Reyes (Operations Manager - Flow Masters Plumbing)
+
+---
+
+Sales Rep: Hi Sandra, great to connect. Tell me about Flow Masters Plumbing and your current pain points with inbound calls.
+
+Sandra: Hi! So we're a plumbing company in Phoenix, Arizona. We've been around 15 years. We do residential plumbing, drain cleaning, water heaters, and we just expanded into commercial plumbing last year. We have 8 plumbers on staff. Our problem is we miss a lot of calls after hours and our receptionist gets slammed.
+
+Sales Rep: What are your business hours?
+
+Sandra: Monday through Friday, 7 AM to 5 PM. We don't do Saturdays anymore - we tried it but the techs burned out. Mountain time.
+
+Sales Rep: And after-hours emergencies?
+
+Sandra: Yes, we handle after-hours for emergencies only. Not every call is an emergency.
+
+Sales Rep: What counts as an emergency for you?
+
+Sandra: Active water leak, burst pipe, sewage backup inside the home, no hot water if there are kids or elderly in the house, and flooded areas. Basically anything where waiting until morning could cause significant property damage or health risk.
+
+Sales Rep: And who handles those calls?
+
+Sandra: We have an on-call plumber rotation. Right now it's either Carlos Mendez at 602-555-0133 or Tommy Walsh at 602-555-0271. They rotate weekly. We'll figure out a way to let you know whose week it is - maybe we can update that somewhere.
+
+Sales Rep: We can work with a variable for that. During business hours, how should calls be routed?
+
+Sandra: Get their name, phone number, the address, and a brief description of the issue. Then transfer to our office line at 602-555-0050. If we don't pick up - which shouldn't happen during hours but just in case - take a message and tell them we'll call back within 30 minutes.
+
+Sales Rep: Services you want the agent to know about?
+
+Sandra: Drain cleaning, pipe repair and replacement, water heater install and repair, leak detection, sewer line, garbage disposal, toilet and faucet repair, bathroom and kitchen remodeling plumbing rough-in.
+
+Sales Rep: Do you use field service software?
+
+Sandra: We use Jobber. Same thing - don't touch Jobber. Just take the info and we'll handle scheduling.
+
+Sales Rep: Office address?
+
+Sandra: 9200 West McDowell Road, Suite 110, Phoenix, AZ 85037.
+
+Sales Rep: Any special instructions?
+
+Sandra: Yes, a few things. If someone calls asking about our commercial services, flag that specifically in the message - we want our commercial coordinator to call those back, not the regular dispatch. Also, we have a VIP client list but the agent won't know who's on it, so just treat everyone the same. And please don't say we're the cheapest or best - we had a previous answering service that said stuff like that and it caused problems.
+
+Sales Rep: Noted. What should happen if an emergency call comes in but it doesn't meet your emergency definition?
+
+Sandra: Be empathetic but explain we can schedule them first thing in the morning. Collect their info and the agent should offer to put them on our early morning priority list.
+
+Sales Rep: That's great. Anything else?
+
+Sandra: If someone has a simple question like "how much does a water heater cost" just say pricing varies based on the unit and installation, and we'll give them an exact quote when a plumber assesses the job.
+
+Sales Rep: Perfect, I think we have a solid picture. Let me recap...
+
+[Summary and closing - 3 minutes]

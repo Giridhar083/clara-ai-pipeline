@@ -1,0 +1,53 @@
+ONBOARDING CALL TRANSCRIPT
+Account ID: account_002
+Date: 2024-02-03
+Duration: 12 minutes
+Participants: Onboarding Specialist (Clara AI), Sandra Reyes (Operations Manager - Flow Masters Plumbing)
+
+---
+
+Onboarding Specialist: Hi Sandra, thanks for joining the onboarding call. Let's confirm your setup and capture any updates. Has anything changed since our demo call?
+
+Sandra: Yes, a few things actually. So we decided to add Saturday hours after all - just half day. Saturday 8 AM to noon, Mountain time.
+
+Onboarding Specialist: Great, so updated hours are Monday through Friday 7 AM to 5 PM, and Saturday 8 AM to 12 PM, Mountain time?
+
+Sandra: Exactly.
+
+Onboarding Specialist: Any changes to emergency contacts?
+
+Sandra: Yes - the on-call rotation is handled differently now. We hired an answering coordinator, her name is Maria Flores. She manages the on-call schedule. So for after-hours emergencies, transfer to Maria first at 602-555-0318. She'll then dispatch the on-call plumber. You don't need to track who's on call.
+
+Onboarding Specialist: Perfect, that simplifies it. So after-hours emergency calls go to Maria Flores at 602-555-0318?
+
+Sandra: Correct. If Maria doesn't answer within 3 rings, then fall back to the on-call plumber line. I'll give you a rotation update monthly but for now Carlos Mendez is on call at 602-555-0133.
+
+Onboarding Specialist: Got it. Main office number still 602-555-0050?
+
+Sandra: Yes, that's the same.
+
+Onboarding Specialist: Any new services or changes?
+
+Sandra: We added tankless water heater installation - that's now a full service we offer. Also, we launched a drain maintenance club membership - it's a subscription. If callers ask about it, mention we have a membership program and someone will explain the details.
+
+Onboarding Specialist: Any changes to your Jobber instructions?
+
+Sandra: Same - don't touch Jobber. Also, we're trialing HouseCall Pro for customer-facing booking requests. But the agent still shouldn't book directly - just take the info and we handle it on our end.
+
+Onboarding Specialist: Address is still 9200 West McDowell Road, Suite 110, Phoenix, AZ 85037?
+
+Sandra: We actually moved! New address is 14800 North Northsight Blvd, Suite 221, Scottsdale, AZ 85260.
+
+Onboarding Specialist: Great, updated. Any tone or conversation style preferences?
+
+Sandra: Keep it very friendly. We're a family-run business and we want callers to feel like they're talking to a neighbor, not a call center.
+
+Onboarding Specialist: Anything else?
+
+Sandra: If someone asks for a same-day appointment, the agent can say we try to accommodate same-day when possible and will do their best - not a hard no. We sometimes have cancellations.
+
+Onboarding Specialist: That's a great nuance. Let me recap the changes: Saturday hours added, emergency routing now goes to Maria Flores first, tankless water heater and membership program added to services, address updated to Scottsdale. Anything else?
+
+Sandra: That's everything!
+
+[Setup finalization - 2 minutes]

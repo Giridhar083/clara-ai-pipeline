@@ -1,0 +1,59 @@
+ONBOARDING CALL TRANSCRIPT
+Account ID: account_004
+Date: 2024-02-07
+Duration: 16 minutes
+Participants: Onboarding Specialist (Clara AI), Diane Foster (Office Manager - PowerPro Electrical)
+
+---
+
+Onboarding Specialist: Hi Diane, let's get your PowerPro agent finalized. Any updates since the demo?
+
+Diane: Quite a few actually. So first - we hired a new receptionist, thank goodness. Her name is Patricia. The main scheduling line stays at 404-555-0100, that's the same.
+
+Onboarding Specialist: Great. Emergency line still 404-555-0199?
+
+Diane: Yes, that's unchanged.
+
+Onboarding Specialist: Any service updates?
+
+Diane: We stopped offering smart home integration services. We tried it for a few months but it wasn't our core business. Remove that from the list.
+
+Onboarding Specialist: Removed. Anything added?
+
+Diane: Yes - we now offer commercial LED lighting retrofits. That's a new service we're pushing hard. If anyone mentions commercial lighting upgrades, flag it for our commercial team.
+
+Onboarding Specialist: Got it. Commercial coordinator is still Brian Torres?
+
+Diane: No, Brian moved to a different role. Commercial inquiries now go to Rachel Kim at 404-555-0177. She manages all commercial accounts and new commercial projects.
+
+Onboarding Specialist: Updated to Rachel Kim at 404-555-0177 for commercial. Any changes to emergency definition?
+
+Diane: We want to add one more emergency scenario - any electrical issue at a medical facility or care home is automatically an emergency regardless of what the specific problem is. We have a few assisted living facility clients who need priority treatment.
+
+Onboarding Specialist: That's a clear addition. Any hour changes?
+
+Diane: We're now open a half day Saturday - 8 AM to 1 PM, Eastern. For emergency electrical needs only on Saturday. Regular service requests Saturday go to a voicemail queue that we check Monday morning.
+
+Onboarding Specialist: So Saturday 8-1 PM Eastern is for emergencies only, regular calls take a message?
+
+Diane: Exactly.
+
+Onboarding Specialist: Office address still 3350 Piedmont Road NE, Suite 200, Atlanta, GA 30305?
+
+Diane: Same, yes.
+
+Onboarding Specialist: Any changes to ServiceTitan instructions?
+
+Diane: Same - no creating jobs. But I want to add - if a caller mentions a referral from a specific company or contractor, make sure to capture the referral source in the message. We track that.
+
+Onboarding Specialist: Smart. Any tone preferences or things to avoid?
+
+Diane: The agent should always acknowledge that electrical issues can feel scary or stressful for homeowners. Be reassuring without making promises. And never use the phrase "no problem" - I personally find it dismissive.
+
+Onboarding Specialist: Noted. Summary of changes: smart home integration removed, LED commercial retrofits added, commercial contact updated to Rachel Kim at 404-555-0177, medical facility emergencies added as trigger, Saturday half-day added for emergencies. Anything else?
+
+Diane: One thing - for generator service calls, we want those routed to our dedicated generator team. The contact for generator inquiries is Sam Patel at 404-555-0155. Before it was just a note, now we want it actually routed there.
+
+Onboarding Specialist: Got it - generator inquiries route to Sam Patel at 404-555-0155. Updating that.
+
+[Setup finalization - 3 minutes]

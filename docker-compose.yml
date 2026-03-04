@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    container_name: clara-n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      # ── Required ─────────────────────────────────────────────
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER:-admin}
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_BASIC_AUTH_PASSWORD:-claraai123}
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - WEBHOOK_URL=http://localhost:5678/
+
+      # ── Pass through your Groq API key ───────────────────────
+      - GROQ_API_KEY=${GROQ_API_KEY}
+
+      # ── Optional: Trello (free tier) ─────────────────────────
+      - TRELLO_API_KEY=${TRELLO_API_KEY:-}
+      - TRELLO_TOKEN=${TRELLO_TOKEN:-}
+      - TRELLO_LIST_ID=${TRELLO_LIST_ID:-}
+
+      # ── n8n file system permissions ──────────────────────────
+      - N8N_USER_FOLDER=/home/node/.n8n
+      - NODE_FUNCTION_ALLOW_BUILTIN=fs,path
+
+    volumes:
+      # n8n internal data (workflows, credentials)
+      - n8n_data:/home/node/.n8n
+
+      # Mount the full project into the container at /data
+      # This gives n8n access to inputs/, outputs/, changelog/
+      - .:/data
+
+    user: "1000:1000"
+
+volumes:
+  n8n_data:
+    driver: local

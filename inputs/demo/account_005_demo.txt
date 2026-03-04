@@ -1,0 +1,63 @@
+DEMO CALL TRANSCRIPT
+Account ID: account_005
+Date: 2024-01-19
+Duration: 21 minutes
+Participants: Sales Rep (Clara AI), James Okafor (Co-Owner - Total Comfort Heating & Cooling)
+
+---
+
+Sales Rep: James, thanks for making time today. Give me a quick overview of Total Comfort and what challenges you're facing.
+
+James: Sure. So Total Comfort Heating and Cooling is a mid-size HVAC company in Seattle, Washington. We do residential and commercial HVAC, heat pumps, ductless mini-splits, and we've been growing our maintenance contract business a lot this year. We have 10 techs and 2 office staff but we're stretched thin on phones.
+
+Sales Rep: Got it. What are your normal business hours?
+
+James: Monday through Friday 8 AM to 5 PM Pacific time. No weekends.
+
+Sales Rep: And do you handle after-hours emergencies?
+
+James: Yes, but it's limited. We only take after-hours calls for no-heat emergencies in winter, which in Seattle means roughly November through March. For cooling emergencies in summer it's case by case - we don't get many 100 degree days in Seattle. So the agent should probably ask the season and what the issue is.
+
+Sales Rep: What exactly triggers an emergency after-hours call?
+
+James: Complete loss of heat when outdoor temps are below 40 degrees. That's the main one. Also, if a heat pump is smoking or making loud banging sounds - that's a safety issue. For commercial clients, any HVAC failure that affects their operations counts.
+
+Sales Rep: Who handles after-hours calls?
+
+James: My co-owner, Lisa Chen, at 206-555-0144. She manages the on-call schedule. If she doesn't answer, I'm the backup - James Okafor, 206-555-0122. Give the caller both numbers and tell them to try both.
+
+Sales Rep: During business hours?
+
+James: Get the caller's name, phone, address, type of system they have if they know it, and what the problem is or what service they need. Transfer to our main office at 206-555-0080. If no answer, take a message, confirm we'll call back within 1 hour.
+
+Sales Rep: Services to cover?
+
+James: HVAC installation and replacement, HVAC repair and maintenance, heat pump systems, ductless mini-split installation and service, air purification, smart thermostat setup, duct cleaning and sealing, commercial HVAC service, and maintenance agreements.
+
+Sales Rep: Any software restrictions?
+
+James: We use FieldEdge for dispatch and scheduling. Do not enter jobs in FieldEdge - our dispatcher does that. The agent just collects and routes.
+
+Sales Rep: Office address?
+
+James: 7845 Aurora Avenue North, Suite 300, Seattle, WA 98103.
+
+Sales Rep: Anything special?
+
+James: A few things. We have a tiered maintenance contract program - Silver, Gold, and Platinum. If an existing customer mentions they have a maintenance contract, add that to the notes because contract holders get priority scheduling. The agent should ask if they're an existing customer with a maintenance plan.
+
+Sales Rep: Good detail.
+
+James: Also, we recently started partnering with an energy efficiency rebate program. If someone asks about rebates or incentives for new HVAC equipment, just tell them we can walk them through available rebates when they speak with our team.
+
+Sales Rep: Any commercial-specific handling?
+
+James: For commercial calls, flag it as commercial and note the business name. We have a commercial account manager, Brian Torres, who handles all commercial clients. His line is 206-555-0091. Route commercial calls to him directly instead of general dispatch.
+
+Sales Rep: That's a great distinction. Anything else?
+
+James: Don't ever tell a caller we're the cheapest. We're not trying to compete on price. We sell quality and reliability. If anyone pushes on price, just say we provide transparent quotes and our focus is on getting the job done right.
+
+Sales Rep: Noted. Let me summarize everything we've captured...
+
+[Summary and closing - 4 minutes]

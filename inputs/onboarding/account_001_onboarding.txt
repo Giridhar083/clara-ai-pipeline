@@ -1,0 +1,47 @@
+ONBOARDING CALL TRANSCRIPT
+Account ID: account_001
+Date: 2024-02-01
+Duration: 15 minutes
+Participants: Onboarding Specialist (Clara AI), Mike Henderson (Owner - Arctic Air HVAC)
+
+---
+
+Onboarding Specialist: Hi Mike! This is the onboarding call to finalize your Clara AI agent setup. I want to confirm some details and capture any updates since our demo call. First, has anything changed that we should know about?
+
+Mike: Yeah actually a couple things. Dave Kowalski, my lead tech I mentioned - he actually left the company last week. So for after-hours emergencies, the new first contact is our new senior tech, Jordan Blake. His cell is 214-555-0341.
+
+Onboarding Specialist: Got it. So Jordan Blake at 214-555-0341 is the new primary emergency contact?
+
+Mike: Right. And Rosa Martinez stays as backup at 214-555-0294, same as before.
+
+Onboarding Specialist: Perfect. Any changes to business hours?
+
+Mike: Actually yes - we just decided to drop Saturday hours for now. We're only doing Saturday HVAC emergencies, not regular calls. So office hours are now Monday through Friday only, 8 AM to 6 PM. Saturdays are emergency-only, same emergency rules apply.
+
+Onboarding Specialist: Understood. What about the dispatch transfer number - still 214-555-0100?
+
+Mike: Yes, same. Oh, one more thing. We now have a financing partner - Greensky Financial. If a customer asks about financing for a new system, the agent should say we offer financing options and a team member will provide details. Don't quote any terms.
+
+Onboarding Specialist: Noted. Anything about the services list?
+
+Mike: We added EV charging station service recently - we have an electrician on staff now. So add that to the services.
+
+Onboarding Specialist: Great. Any changes to your ServiceTitan instructions or integration constraints?
+
+Mike: Same - never create jobs in ServiceTitan. That hasn't changed.
+
+Onboarding Specialist: And your office address is still 4821 Commerce Street, Dallas, TX 75226?
+
+Mike: Correct.
+
+Onboarding Specialist: Is there anything about how calls should sound or the tone of the agent you'd like adjusted?
+
+Mike: I want the agent to sound a bit more like a local Dallas person, friendly and warm. Not stiff. And please don't say "I understand your frustration" - that phrase drives me crazy, it sounds fake.
+
+Onboarding Specialist: Noted - warm and natural tone, avoid corporate-sounding empathy phrases. Let me summarize the changes: primary emergency contact updated to Jordan Blake at 214-555-0341, Saturday regular hours removed, EV charging added to services, financing option mention added. Anything else?
+
+Mike: That covers it. Oh - one last thing. If a caller mentions they're a builder or contractor looking for subcontracting work, have the agent take their info and tell them our commercial/contractor coordinator will reach out. We're starting to do more builder partnerships.
+
+Onboarding Specialist: Perfect. That's all captured. Let me finalize your agent configuration...
+
+[Setup finalization - 3 minutes]

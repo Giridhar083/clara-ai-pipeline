@@ -1,0 +1,53 @@
+ONBOARDING CALL TRANSCRIPT
+Account ID: account_003
+Date: 2024-02-05
+Duration: 14 minutes
+Participants: Onboarding Specialist (Clara AI), Kevin Park (Owner - GreenGuard Irrigation & Sprinklers)
+
+---
+
+Onboarding Specialist: Hi Kevin, ready to finalize your GreenGuard agent setup. Any updates since our demo?
+
+Kevin: Yes, a few things. So we hired an office coordinator finally, which changes the routing a bit. Her name is Anne Sullivan and she handles all inbound during office hours. The transfer number should now be 630-555-0085 - that rings directly to Anne. The old number 630-555-0070 is still the main line but she picks up the direct line faster.
+
+Onboarding Specialist: Got it, updating transfer to 630-555-0085 for Anne Sullivan. If she doesn't answer?
+
+Kevin: Same as before - take a message, call back within 2 hours peak season or end of day off-season.
+
+Onboarding Specialist: Emergency contact - still you at 630-555-0166?
+
+Kevin: Yes, that's the same.
+
+Onboarding Specialist: Any service changes?
+
+Kevin: We added commercial irrigation. We just landed a contract with a property management company so we now do commercial properties. If someone calls about a commercial property - like an HOA, office park, or apartment complex - flag it specifically. Those go to me directly, not Anne.
+
+Onboarding Specialist: So commercial irrigation inquiries route directly to you at 630-555-0166 during business hours?
+
+Kevin: Right. Well, during business hours try 630-555-0166 first, if I don't answer within 3 rings then transfer to Anne so the caller at least talks to someone.
+
+Onboarding Specialist: Makes sense. Any changes to your ServiceTrade constraint?
+
+Kevin: Same - don't create jobs in ServiceTrade. Actually I want to add: also don't reference ServiceTrade by name to callers ever. Just say our team will get them scheduled.
+
+Onboarding Specialist: Noted. Address still 1847 Ogden Avenue, Naperville, IL 60540?
+
+Kevin: Yes, same.
+
+Onboarding Specialist: Any seasonal hour changes?
+
+Kevin: Actually the season window shifted a bit. Busy season is now April 1 through October 31. Off-season is November through March. Hours stay the same in each period.
+
+Onboarding Specialist: Got it. Tone preferences?
+
+Kevin: I want it to sound knowledgeable about irrigation. Like it knows the difference between a drip system and a rotor head. Just don't get too technical with customers who aren't irrigation-savvy.
+
+Onboarding Specialist: Anything else?
+
+Kevin: Yes - we started accepting online reviews requests. If a customer seems happy at the end of the call, the agent can mention we'd appreciate a Google review. But only if the conversation is clearly positive.
+
+Onboarding Specialist: That's a nice touch. Let me recap: new dispatch number to Anne at 630-555-0085, commercial irrigation added as service with special routing to Kevin first, don't mention ServiceTrade by name, season window updated to April-October. Anything else?
+
+Kevin: That covers it!
+
+[Setup finalization - 2 minutes]

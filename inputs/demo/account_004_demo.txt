@@ -1,0 +1,63 @@
+DEMO CALL TRANSCRIPT
+Account ID: account_004
+Date: 2024-01-18
+Duration: 25 minutes
+Participants: Sales Rep (Clara AI), Diane Foster (Office Manager - PowerPro Electrical)
+
+---
+
+Sales Rep: Hi Diane, thanks for connecting today. Tell me about PowerPro Electrical and what's bringing you to look at AI answering.
+
+Diane: Hi! So we're a licensed electrical contractor in Atlanta, Georgia. We do residential and commercial work - panels, wiring, outlets, generators, EV charging stations, you name it. We have 15 electricians and 3 apprentices. We're growing fast and our receptionist can't keep up. She's quitting actually.
+
+Sales Rep: Oh wow, that's timely. What are your business hours?
+
+Diane: Monday through Friday, 7:30 AM to 5:30 PM, Eastern time. We do have emergency on-call but that's handled differently.
+
+Sales Rep: Tell me about emergencies. What constitutes one for PowerPro?
+
+Diane: Electrical emergencies are serious - complete power outages at a home or business, exposed wiring or sparking, electrical panel issues that are sparking or hot, burning smell from electrical, power outage affecting medical equipment. Basically anything that's a safety hazard or major loss-of-power situation. 
+
+Sales Rep: Who takes those calls?
+
+Diane: We have a dedicated emergency line - 404-555-0199. That rings to whoever is on-call that week. We rotate between four senior electricians. The on-call tech's name changes weekly, so just transfer to that number and they'll answer.
+
+Sales Rep: And if that line doesn't answer?
+
+Diane: If they don't pick up within 3 rings, the caller should be told to call 404-555-0199 back in 5 minutes or call 911 if it's a safety emergency. Do NOT tell them we'll call back because we might miss them.
+
+Sales Rep: During business hours?
+
+Diane: Get their name, phone, address, and type of work. Residential or commercial is important to flag. Then transfer to our scheduling line at 404-555-0100. If scheduling doesn't pick up, take a message and we'll return it within 45 minutes.
+
+Sales Rep: Services to list?
+
+Diane: Panel upgrades and replacements, whole-home rewiring, outlet and switch installation, lighting installation indoor and outdoor, ceiling fans, generator installation and service, EV charger installation, smart home integration, commercial electrical, code compliance work.
+
+Sales Rep: Software you use?
+
+Diane: We use ServiceTitan for everything. Do not create tickets or jobs in ServiceTitan - our coordinators do that. The agent just collects info.
+
+Sales Rep: Your office address?
+
+Diane: 3350 Piedmont Road NE, Suite 200, Atlanta, GA 30305.
+
+Sales Rep: Any special notes?
+
+Diane: Yes - when someone asks about generator installation, make a note that it's a bigger project and tell them we'll have our generator specialist call them back to discuss options. Don't route them to general scheduling for that. Also for EV chargers, same thing - it's a specialized service, flag it for our EV team.
+
+Sales Rep: And pricing questions?
+
+Diane: We do offer free estimates for larger projects. The agent can mention that. But don't quote any rates - electrician rates vary by job complexity.
+
+Sales Rep: Do you have any commercial clients with special handling?
+
+Diane: Yes but the agent won't know who they are. Just collect info normally. Our staff will prioritize them when they see the name.
+
+Sales Rep: Makes sense. Anything else?
+
+Diane: If someone calls asking about permitting - we pull permits for all major work, that's just standard. The agent doesn't need to get into details, just say our team handles all permitting as part of the project.
+
+Sales Rep: Perfect. I think we have a very complete picture here. Let me run through the summary...
+
+[Summary and closing - 5 minutes]

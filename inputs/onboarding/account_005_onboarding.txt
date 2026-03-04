@@ -1,0 +1,59 @@
+ONBOARDING CALL TRANSCRIPT
+Account ID: account_005
+Date: 2024-02-09
+Duration: 17 minutes
+Participants: Onboarding Specialist (Clara AI), James Okafor (Co-Owner - Total Comfort Heating & Cooling)
+
+---
+
+Onboarding Specialist: Hi James, let's finalize your Total Comfort agent. Any updates since our demo?
+
+James: Yes, actually a pretty important one. Lisa Chen - my co-owner I mentioned as first after-hours contact - she's stepping back from the on-call rotation. So for after-hours emergencies, the primary contact is now our service manager, Derek Walsh at 206-555-0199. I'm the backup, same number 206-555-0122.
+
+Onboarding Specialist: Got it. Derek Walsh at 206-555-0199 is primary, you at 206-555-0122 as backup?
+
+James: Correct. Same two-number protocol - try both if neither answers, tell the caller someone will reach them within 20 minutes.
+
+Onboarding Specialist: Main office line still 206-555-0080?
+
+James: Yes.
+
+Onboarding Specialist: Commercial account manager - still Brian Torres at 206-555-0091?
+
+James: Yes, unchanged.
+
+Onboarding Specialist: Any service changes?
+
+James: We dropped duct cleaning as a standalone service. We subcontract it out now and it got complicated. If someone asks about duct cleaning specifically, just say we can connect them with a partner and have someone call them back.
+
+Onboarding Specialist: Noted. Anything added?
+
+James: Yes - we now offer free energy audits for new residential customers interested in a new HVAC system. If someone is considering a replacement or new system, the agent should mention the free energy audit offer.
+
+Onboarding Specialist: Great selling point. Address still 7845 Aurora Avenue North, Suite 300, Seattle, WA 98103?
+
+James: We're moving next month to 1023 Eastlake Avenue East, Suite 400, Seattle, WA 98102. Can we update it now?
+
+Onboarding Specialist: Absolutely - new address noted.
+
+Onboarding Specialist: Any changes to the FieldEdge constraint?
+
+James: Same - no entering jobs in FieldEdge. But also, we integrated with a customer portal. If existing customers ask about checking their service history or scheduling online, tell them to log into our customer portal at totalcomfortseattle.com/portal.
+
+Onboarding Specialist: Got it. Maintenance contract handling - still ask about maintenance plan status?
+
+James: Yes, still important. And actually, I want the agent to mention our maintenance plans more proactively. If someone calls for a repair and doesn't mention a plan, the agent should say something like "by the way, we do have maintenance plans that can help prevent issues like this - would you like to know more?" Then flag it in the message.
+
+Onboarding Specialist: Nice upsell prompt. Tone preferences?
+
+James: Same as before - quality-focused, no price competition language. We'd also like the agent to sound like it knows Seattle - reference the Pacific Northwest weather when relevant, like "with our Seattle winters" kind of thing.
+
+Onboarding Specialist: Anything else?
+
+James: We recently got certified for Lennox equipment specifically. If someone mentions Lennox systems or asks if we service Lennox, the agent can confirm yes, we're Lennox certified.
+
+Onboarding Specialist: Perfect. Summary of changes: emergency contact updated to Derek Walsh as primary, duct cleaning service changed to referral-out, free energy audit offer added for replacement inquiries, address updated to 1023 Eastlake Avenue East, customer portal reference added, maintenance plan upsell prompt added. Correct?
+
+James: That's everything, thank you.
+
+[Setup finalization - 3 minutes]
