@@ -118,7 +118,7 @@ clara-ai-pipeline/
 ### Step 1 — Clone the repo and set up environment
 
 ```bash
-git clone <your-repo-url>
+git clone <(https://github.com/Giridhar083/clara-ai-pipeline)>
 cd clara-ai-pipeline
 
 cp .env.example .env
@@ -126,13 +126,7 @@ cp .env.example .env
 
 Open `.env` and add your **Groq free API key**:
 ```
-GROQ_API_KEY=gsk_your_key_here
-```
-
-Get a free Groq key at: **https://console.groq.com** → API Keys → Create API Key  
-(No credit card required.)
-
----
+GROQ_API_KEY=API_Key
 
 ### Step 2 — Add your transcript files
 
