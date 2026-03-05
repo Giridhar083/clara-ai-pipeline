@@ -111,7 +111,7 @@ def run_batch(
                 logger.error(f"  ✗ FAILED: {f.name} — {e}")
 
             if i < len(onboarding_files):
-                time.sleep(2)
+                time.sleep(15)
 
     # ── Build summary ────────────────────────────────────────────────────
     end_time = datetime.utcnow()
