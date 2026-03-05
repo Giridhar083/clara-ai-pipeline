@@ -324,12 +324,3 @@ Running the pipeline twice on the same inputs is safe:
 
 ---
 
-## Groq Free Tier Usage Estimate
-
-Each transcript requires approximately 2 Groq API calls:
-- Pipeline A: 1 call per demo file (5 calls total)
-- Pipeline B: 1 call per onboarding file (5 calls total)
-- **Total: ~10 calls, ~25,000 tokens**
-
-Groq free tier allows **14,400 requests/day** and generous token limits.  
-This entire assignment runs well within free limits.
