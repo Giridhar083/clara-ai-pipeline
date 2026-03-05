@@ -1,0 +1,118 @@
+{
+  "account_id": "account_002",
+  "company_name": "Flow Masters Plumbing",
+  "version_from": "v1",
+  "version_to": "v2",
+  "generated_at": "2026-03-05T04:40:43.838151Z",
+  "total_changes": 15,
+  "changes": [
+    {
+      "field": "business_hours.days",
+      "change_type": "value_updated",
+      "old_value": "Monday through Friday",
+      "new_value": "Monday through Friday and Saturday",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "business_hours.end",
+      "change_type": "value_updated",
+      "old_value": "5 PM",
+      "new_value": "5 PM Monday to Friday, 12 PM Saturday",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "business_hours.start",
+      "change_type": "value_updated",
+      "old_value": "7 AM",
+      "new_value": "7 AM Monday to Friday, 8 AM Saturday",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "emergency_routing_rules.fallback_instruction",
+      "change_type": "value_updated",
+      "old_value": "null",
+      "new_value": "transfer to on-call plumber line",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "emergency_routing_rules.primary_contact_name",
+      "change_type": "value_updated",
+      "old_value": "Carlos Mendez",
+      "new_value": "Maria Flores",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "emergency_routing_rules.primary_contact_phone",
+      "change_type": "value_updated",
+      "old_value": "602-555-0133",
+      "new_value": "602-555-0318",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "emergency_routing_rules.rings_before_fallback",
+      "change_type": "value_updated",
+      "old_value": "null",
+      "new_value": "3",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "emergency_routing_rules.secondary_contact_name",
+      "change_type": "value_updated",
+      "old_value": "Tommy Walsh",
+      "new_value": "Carlos Mendez",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "emergency_routing_rules.secondary_contact_phone",
+      "change_type": "value_updated",
+      "old_value": "602-555-0271",
+      "new_value": "602-555-0133",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "notes",
+      "change_type": "value_updated",
+      "old_value": "VIP client list exists but agent won't know who's on it, treat everyone the same",
+      "new_value": "VIP client list exists but agent won't know who's on it, treat everyone the same, sometimes accommodate same-day appointments",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "office_address",
+      "change_type": "value_updated",
+      "old_value": "9200 West McDowell Road, Suite 110, Phoenix, AZ 85037",
+      "new_value": "14800 North Northsight Blvd, Suite 221, Scottsdale, AZ 85260",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "questions_or_unknowns",
+      "change_type": "items_added",
+      "added": [
+        "null"
+      ],
+      "reason": "Added during onboarding update"
+    },
+    {
+      "field": "questions_or_unknowns",
+      "change_type": "items_removed",
+      "removed": [
+        "whose week it is for on-call plumber rotation"
+      ],
+      "reason": "Removed during onboarding update"
+    },
+    {
+      "field": "services_supported",
+      "change_type": "items_added",
+      "added": [
+        "tankless water heater installation"
+      ],
+      "reason": "Added during onboarding update"
+    },
+    {
+      "field": "tone_instructions",
+      "change_type": "value_updated",
+      "old_value": "be empathetic, do not say we're the cheapest or best",
+      "new_value": "be very friendly, like talking to a neighbor",
+      "reason": "Updated during onboarding call"
+    }
+  ]
+}

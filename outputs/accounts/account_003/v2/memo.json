@@ -1,0 +1,78 @@
+{
+  "account_id": "account_003",
+  "company_name": "GreenGuard Irrigation & Sprinklers",
+  "business_hours": {
+    "days": "Monday-Saturday (April-October), Monday-Friday (November-March)",
+    "start": "7:00 AM (April-October), 8:00 AM (November-March)",
+    "end": "6:00 PM (April-October), 4:00 PM (November-March)",
+    "timezone": "Central",
+    "exceptions": null
+  },
+  "office_address": "1847 Ogden Avenue, Naperville, IL 60540",
+  "services_supported": [
+    "new system installation",
+    "system repair",
+    "annual startup",
+    "winterization blowout",
+    "backflow testing",
+    "drip irrigation",
+    "smart controller upgrades",
+    "commercial irrigation"
+  ],
+  "emergency_definition": [
+    "active flooding situations"
+  ],
+  "emergency_routing_rules": {
+    "primary_contact_name": "Kevin Park",
+    "primary_contact_phone": "630-555-0166",
+    "secondary_contact_name": null,
+    "secondary_contact_phone": null,
+    "rings_before_fallback": null,
+    "fallback_instruction": "leave a detailed voicemail"
+  },
+  "non_emergency_routing_rules": {
+    "action": "collect name, phone, address, and what they need",
+    "callback_window": "within 2 hours during peak season or end of day in off-season",
+    "message_destination": null
+  },
+  "call_transfer_rules": {
+    "transfer_number": "630-555-0085",
+    "transfer_contact_name": "Anne Sullivan",
+    "timeout_rings": null,
+    "message_if_transfer_fails": "take a message",
+    "callback_window_if_fails": "within 2 hours during peak season or end of day in off-season"
+  },
+  "special_routing_rules": [
+    {
+      "trigger": "spring startup (April-May) or winterization (October) calls",
+      "action": "let callers know we're booking out several weeks and ask if they want to be added to the waitlist",
+      "contact_name": null,
+      "contact_phone": null
+    },
+    {
+      "trigger": "calls about a property we did work for but they're a new owner",
+      "action": "get the new owner's name and contact and tell them we'll pull up the system history",
+      "contact_name": null,
+      "contact_phone": null
+    },
+    {
+      "trigger": "commercial irrigation inquiries",
+      "action": "route to Kevin Park at 630-555-0166, if no answer within 3 rings then transfer to Anne Sullivan",
+      "contact_name": "Kevin Park",
+      "contact_phone": "630-555-0166"
+    }
+  ],
+  "integration_constraints": [
+    "do not create jobs in ServiceTrade",
+    "do not book anything on Google calendar directly",
+    "do not reference ServiceTrade by name to callers"
+  ],
+  "pricing_instructions": null,
+  "after_hours_flow_summary": "handle emergency calls for active flooding situations",
+  "office_hours_flow_summary": "collect name, phone, address, and what they need, then transfer to office",
+  "tone_instructions": "sound knowledgeable about irrigation, avoid being too technical with non-irrigation-savvy customers",
+  "questions_or_unknowns": [
+    "what to say about pricing"
+  ],
+  "notes": "use ServiceTrade for job management, be aware of seasonal business and high call volume during spring and fall, request online reviews from happy customers"
+}

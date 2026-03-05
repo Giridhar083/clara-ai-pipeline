@@ -1,0 +1,77 @@
+{
+  "account_id": "account_004",
+  "company_name": "PowerPro Electrical",
+  "business_hours": {
+    "days": "Monday through Friday",
+    "start": "7:30 AM",
+    "end": "5:30 PM",
+    "timezone": "Eastern time",
+    "exceptions": null
+  },
+  "office_address": "3350 Piedmont Road NE, Suite 200, Atlanta, GA 30305",
+  "services_supported": [
+    "Panel upgrades and replacements",
+    "Whole-home rewiring",
+    "Outlet and switch installation",
+    "Lighting installation indoor and outdoor",
+    "Ceiling fans",
+    "Generator installation and service",
+    "EV charger installation",
+    "Smart home integration",
+    "Commercial electrical",
+    "Code compliance work"
+  ],
+  "emergency_definition": [
+    "Complete power outages at a home or business",
+    "Exposed wiring or sparking",
+    "Electrical panel issues that are sparking or hot",
+    "Burning smell from electrical",
+    "Power outage affecting medical equipment"
+  ],
+  "emergency_routing_rules": {
+    "primary_contact_name": null,
+    "primary_contact_phone": "404-555-0199",
+    "secondary_contact_name": null,
+    "secondary_contact_phone": null,
+    "rings_before_fallback": 3,
+    "fallback_instruction": "Tell the caller to call 404-555-0199 back in 5 minutes or call 911 if it's a safety emergency"
+  },
+  "non_emergency_routing_rules": {
+    "action": "Get their name, phone, address, and type of work, then transfer to scheduling line",
+    "callback_window": "within 45 minutes",
+    "message_destination": null
+  },
+  "call_transfer_rules": {
+    "transfer_number": "404-555-0100",
+    "transfer_contact_name": "Scheduling",
+    "timeout_rings": null,
+    "message_if_transfer_fails": "Take a message",
+    "callback_window_if_fails": "within 45 minutes"
+  },
+  "special_routing_rules": [
+    {
+      "trigger": "Generator installation",
+      "action": "Make a note and have the generator specialist call them back",
+      "contact_name": "Generator specialist",
+      "contact_phone": null
+    },
+    {
+      "trigger": "EV charger installation",
+      "action": "Flag it for the EV team",
+      "contact_name": "EV team",
+      "contact_phone": null
+    }
+  ],
+  "integration_constraints": [
+    "Do not create tickets or jobs in ServiceTitan"
+  ],
+  "pricing_instructions": "Mention free estimates for larger projects, but do not quote any rates",
+  "after_hours_flow_summary": "Emergency calls are handled by the on-call electrician",
+  "office_hours_flow_summary": "Non-emergency calls are transferred to the scheduling line",
+  "tone_instructions": null,
+  "questions_or_unknowns": [
+    "Secondary contact for emergency calls",
+    "Timeout rings for call transfer"
+  ],
+  "notes": "Commercial clients with special handling are prioritized by staff, permitting is handled by the team as part of the project"
+}

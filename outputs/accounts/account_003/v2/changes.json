@@ -1,0 +1,82 @@
+{
+  "account_id": "account_003",
+  "company_name": "GreenGuard Irrigation & Sprinklers",
+  "version_from": "v1",
+  "version_to": "v2",
+  "generated_at": "2026-03-05T04:41:00.658261Z",
+  "total_changes": 10,
+  "changes": [
+    {
+      "field": "business_hours.days",
+      "change_type": "value_updated",
+      "old_value": "Monday-Saturday (March-November), Monday-Friday (December-February)",
+      "new_value": "Monday-Saturday (April-October), Monday-Friday (November-March)",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "business_hours.end",
+      "change_type": "value_updated",
+      "old_value": "6:00 PM (March-November), 4:00 PM (December-February)",
+      "new_value": "6:00 PM (April-October), 4:00 PM (November-March)",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "business_hours.start",
+      "change_type": "value_updated",
+      "old_value": "7:00 AM (March-November), 8:00 AM (December-February)",
+      "new_value": "7:00 AM (April-October), 8:00 AM (November-March)",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "call_transfer_rules.timeout_rings",
+      "change_type": "field_cleared",
+      "old_value": 4,
+      "new_value": null,
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "call_transfer_rules.transfer_contact_name",
+      "change_type": "field_added",
+      "old_value": null,
+      "new_value": "Anne Sullivan",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "call_transfer_rules.transfer_number",
+      "change_type": "value_updated",
+      "old_value": "630-555-0070",
+      "new_value": "630-555-0085",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "integration_constraints",
+      "change_type": "items_added",
+      "added": [
+        "do not reference ServiceTrade by name to callers"
+      ],
+      "reason": "Added during onboarding update"
+    },
+    {
+      "field": "notes",
+      "change_type": "value_updated",
+      "old_value": "use ServiceTrade for job management, be aware of seasonal business and high call volume during spring and fall",
+      "new_value": "use ServiceTrade for job management, be aware of seasonal business and high call volume during spring and fall, request online reviews from happy customers",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "services_supported",
+      "change_type": "items_added",
+      "added": [
+        "commercial irrigation"
+      ],
+      "reason": "Added during onboarding update"
+    },
+    {
+      "field": "tone_instructions",
+      "change_type": "field_added",
+      "old_value": null,
+      "new_value": "sound knowledgeable about irrigation, avoid being too technical with non-irrigation-savvy customers",
+      "reason": "Updated during onboarding call"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "account_id": "account_001",
+  "company_name": "Arctic Air HVAC",
+  "business_hours": {
+    "days": "Monday-Friday, Saturday",
+    "start": "8:00 AM",
+    "end": "6:00 PM",
+    "timezone": "Central",
+    "exceptions": "Saturday 9AM-2PM, closed Sundays"
+  },
+  "office_address": "4821 Commerce Street, Dallas, TX 75226",
+  "services_supported": [
+    "HVAC repair",
+    "HVAC installation",
+    "preventive maintenance contracts",
+    "duct cleaning",
+    "thermostat installation and programming",
+    "air quality testing"
+  ],
+  "emergency_definition": [
+    "system completely down and over 95 degrees outside",
+    "refrigerant leak",
+    "commercial client with server room or restaurant with food at risk"
+  ],
+  "emergency_routing_rules": {
+    "primary_contact_name": "Dave Kowalski",
+    "primary_contact_phone": "214-555-0187",
+    "secondary_contact_name": "Rosa Martinez",
+    "secondary_contact_phone": "214-555-0294",
+    "rings_before_fallback": 2,
+    "fallback_instruction": "we'll call back within 15 minutes"
+  },
+  "non_emergency_routing_rules": {
+    "action": "take message or transfer to dispatch",
+    "callback_window": "within 1 hour",
+    "message_destination": "dispatch team"
+  },
+  "call_transfer_rules": {
+    "transfer_number": "214-555-0100",
+    "transfer_contact_name": "dispatch team",
+    "timeout_rings": null,
+    "message_if_transfer_fails": "take a message and we'll call back within the hour",
+    "callback_window_if_fails": "within 1 hour"
+  },
+  "special_routing_rules": [
+    {
+      "trigger": "maintenance contracts inquiry",
+      "action": "transfer to sales team",
+      "contact_name": null,
+      "contact_phone": null
+    }
+  ],
+  "integration_constraints": [
+    "do not create jobs in ServiceTitan"
+  ],
+  "pricing_instructions": "pricing varies and a tech will give an exact quote",
+  "after_hours_flow_summary": "emergency calls are routed to lead tech and then senior tech, with a callback within 15 minutes if no answer",
+  "office_hours_flow_summary": "calls are transferred to dispatch or a message is taken for a callback within the hour",
+  "tone_instructions": "be friendly",
+  "questions_or_unknowns": [
+    "holiday hours",
+    "specific dispatch team member names"
+  ],
+  "notes": "use ServiceTitan for job management, but do not create jobs through the agent"
+}

@@ -1,0 +1,79 @@
+{
+  "account_id": "account_005",
+  "company_name": "Total Comfort Heating & Cooling",
+  "business_hours": {
+    "days": "Monday through Friday",
+    "start": "8 AM",
+    "end": "5 PM",
+    "timezone": "Pacific time",
+    "exceptions": "null"
+  },
+  "office_address": "7845 Aurora Avenue North, Suite 300, Seattle, WA 98103",
+  "services_supported": [
+    "HVAC installation and replacement",
+    "HVAC repair and maintenance",
+    "heat pump systems",
+    "ductless mini-split installation and service",
+    "air purification",
+    "smart thermostat setup",
+    "duct cleaning and sealing",
+    "commercial HVAC service",
+    "maintenance agreements"
+  ],
+  "emergency_definition": [
+    "Complete loss of heat when outdoor temps are below 40 degrees",
+    "Heat pump smoking or making loud banging sounds",
+    "Any HVAC failure that affects commercial operations"
+  ],
+  "emergency_routing_rules": {
+    "primary_contact_name": "Lisa Chen",
+    "primary_contact_phone": "206-555-0144",
+    "secondary_contact_name": "James Okafor",
+    "secondary_contact_phone": "206-555-0122",
+    "rings_before_fallback": "null",
+    "fallback_instruction": "Give the caller both numbers and tell them to try both"
+  },
+  "non_emergency_routing_rules": {
+    "action": "Get caller's name, phone, address, type of system they have if they know it, and what the problem is or what service they need, then transfer to main office",
+    "callback_window": "within 1 hour",
+    "message_destination": "null"
+  },
+  "call_transfer_rules": {
+    "transfer_number": "206-555-0080",
+    "transfer_contact_name": "null",
+    "timeout_rings": "null",
+    "message_if_transfer_fails": "Take a message, confirm we'll call back within 1 hour",
+    "callback_window_if_fails": "within 1 hour"
+  },
+  "special_routing_rules": [
+    {
+      "trigger": "Commercial calls",
+      "action": "Route to commercial account manager",
+      "contact_name": "Brian Torres",
+      "contact_phone": "206-555-0091"
+    },
+    {
+      "trigger": "Existing customer with maintenance contract",
+      "action": "Add to notes for priority scheduling",
+      "contact_name": "null",
+      "contact_phone": "null"
+    },
+    {
+      "trigger": "Rebate or incentive inquiry",
+      "action": "Tell them we can walk them through available rebates when they speak with our team",
+      "contact_name": "null",
+      "contact_phone": "null"
+    }
+  ],
+  "integration_constraints": [
+    "Do not enter jobs in FieldEdge"
+  ],
+  "pricing_instructions": "Provide transparent quotes, focus on getting the job done right, do not compete on price",
+  "after_hours_flow_summary": "Handle no-heat emergencies in winter, case-by-case for cooling emergencies in summer",
+  "office_hours_flow_summary": "Get caller's information, transfer to main office",
+  "tone_instructions": "Do not tell callers we're the cheapest, focus on quality and reliability",
+  "questions_or_unknowns": [
+    "Rings before fallback for emergency calls"
+  ],
+  "notes": "Tiered maintenance contract program, energy efficiency rebate program partnership"
+}

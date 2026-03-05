@@ -1,0 +1,162 @@
+[
+  {
+    "task_id": "account_001_A_v1_2026-03-05",
+    "account_id": "account_001",
+    "company_name": "Arctic Air HVAC",
+    "pipeline": "A",
+    "version": "v1",
+    "status": "completed",
+    "created_at": "2026-03-05T04:40:09.015589Z",
+    "output_files": {
+      "memo": "outputs\\accounts\\account_001\\v1\\memo.json",
+      "agent_spec": "outputs\\accounts\\account_001\\v1\\agent_spec.json"
+    },
+    "notes": "Generated from demo call: account_001_demo.txt",
+    "trello_card_id": null
+  },
+  {
+    "task_id": "account_002_A_v1_2026-03-05",
+    "account_id": "account_002",
+    "company_name": "Flow Masters Plumbing",
+    "pipeline": "A",
+    "version": "v1",
+    "status": "completed",
+    "created_at": "2026-03-05T04:40:12.898836Z",
+    "output_files": {
+      "memo": "outputs\\accounts\\account_002\\v1\\memo.json",
+      "agent_spec": "outputs\\accounts\\account_002\\v1\\agent_spec.json"
+    },
+    "notes": "Generated from demo call: account_002_demo.txt",
+    "trello_card_id": null
+  },
+  {
+    "task_id": "account_003_A_v1_2026-03-05",
+    "account_id": "account_003",
+    "company_name": "GreenGuard Irrigation & Sprinklers",
+    "pipeline": "A",
+    "version": "v1",
+    "status": "completed",
+    "created_at": "2026-03-05T04:40:16.937109Z",
+    "output_files": {
+      "memo": "outputs\\accounts\\account_003\\v1\\memo.json",
+      "agent_spec": "outputs\\accounts\\account_003\\v1\\agent_spec.json"
+    },
+    "notes": "Generated from demo call: account_003_demo.txt",
+    "trello_card_id": null
+  },
+  {
+    "task_id": "account_004_A_v1_2026-03-05",
+    "account_id": "account_004",
+    "company_name": "PowerPro Electrical",
+    "pipeline": "A",
+    "version": "v1",
+    "status": "completed",
+    "created_at": "2026-03-05T04:40:21.062535Z",
+    "output_files": {
+      "memo": "outputs\\accounts\\account_004\\v1\\memo.json",
+      "agent_spec": "outputs\\accounts\\account_004\\v1\\agent_spec.json"
+    },
+    "notes": "Generated from demo call: account_004_demo.txt",
+    "trello_card_id": null
+  },
+  {
+    "task_id": "account_005_A_v1_2026-03-05",
+    "account_id": "account_005",
+    "company_name": "Total Comfort Heating & Cooling",
+    "pipeline": "A",
+    "version": "v1",
+    "status": "completed",
+    "created_at": "2026-03-05T04:40:25.129846Z",
+    "output_files": {
+      "memo": "outputs\\accounts\\account_005\\v1\\memo.json",
+      "agent_spec": "outputs\\accounts\\account_005\\v1\\agent_spec.json"
+    },
+    "notes": "Generated from demo call: account_005_demo.txt",
+    "trello_card_id": null
+  },
+  {
+    "task_id": "account_001_B_v2_2026-03-05",
+    "account_id": "account_001",
+    "company_name": "Arctic Air HVAC",
+    "pipeline": "B",
+    "version": "v2",
+    "status": "completed",
+    "created_at": "2026-03-05T04:40:26.845778Z",
+    "output_files": {
+      "memo_v2": "outputs\\accounts\\account_001\\v2\\memo.json",
+      "agent_spec_v2": "outputs\\accounts\\account_001\\v2\\agent_spec.json",
+      "changes_json": "outputs\\accounts\\account_001\\v2\\changes.json",
+      "changes_md": "changelog\\account_001_changes.md"
+    },
+    "notes": "Updated from onboarding call: account_001_onboarding.txt. 6 field(s) changed.",
+    "trello_card_id": null
+  },
+  {
+    "task_id": "account_002_B_v2_2026-03-05",
+    "account_id": "account_002",
+    "company_name": "Flow Masters Plumbing",
+    "pipeline": "B",
+    "version": "v2",
+    "status": "completed",
+    "created_at": "2026-03-05T04:40:43.845994Z",
+    "output_files": {
+      "memo_v2": "outputs\\accounts\\account_002\\v2\\memo.json",
+      "agent_spec_v2": "outputs\\accounts\\account_002\\v2\\agent_spec.json",
+      "changes_json": "outputs\\accounts\\account_002\\v2\\changes.json",
+      "changes_md": "changelog\\account_002_changes.md"
+    },
+    "notes": "Updated from onboarding call: account_002_onboarding.txt. 15 field(s) changed.",
+    "trello_card_id": null
+  },
+  {
+    "task_id": "account_003_B_v2_2026-03-05",
+    "account_id": "account_003",
+    "company_name": "GreenGuard Irrigation & Sprinklers",
+    "pipeline": "B",
+    "version": "v2",
+    "status": "completed",
+    "created_at": "2026-03-05T04:41:00.662392Z",
+    "output_files": {
+      "memo_v2": "outputs\\accounts\\account_003\\v2\\memo.json",
+      "agent_spec_v2": "outputs\\accounts\\account_003\\v2\\agent_spec.json",
+      "changes_json": "outputs\\accounts\\account_003\\v2\\changes.json",
+      "changes_md": "changelog\\account_003_changes.md"
+    },
+    "notes": "Updated from onboarding call: account_003_onboarding.txt. 10 field(s) changed.",
+    "trello_card_id": null
+  },
+  {
+    "task_id": "account_004_B_v2_2026-03-05",
+    "account_id": "account_004",
+    "company_name": "PowerPro Electrical",
+    "pipeline": "B",
+    "version": "v2",
+    "status": "completed",
+    "created_at": "2026-03-05T04:41:17.838892Z",
+    "output_files": {
+      "memo_v2": "outputs\\accounts\\account_004\\v2\\memo.json",
+      "agent_spec_v2": "outputs\\accounts\\account_004\\v2\\agent_spec.json",
+      "changes_json": "outputs\\accounts\\account_004\\v2\\changes.json",
+      "changes_md": "changelog\\account_004_changes.md"
+    },
+    "notes": "Updated from onboarding call: account_004_onboarding.txt. 9 field(s) changed.",
+    "trello_card_id": null
+  },
+  {
+    "task_id": "account_005_B_v2_2026-03-05",
+    "account_id": "account_005",
+    "company_name": "Total Comfort Heating & Cooling",
+    "pipeline": "B",
+    "version": "v2",
+    "status": "completed",
+    "created_at": "2026-03-05T04:41:36.657601Z",
+    "output_files": {
+      "memo_v2": "outputs\\accounts\\account_005\\v2\\memo.json",
+      "agent_spec_v2": "outputs\\accounts\\account_005\\v2\\agent_spec.json",
+      "changes_json": "outputs\\accounts\\account_005\\v2\\changes.json",
+      "changes_md": "changelog\\account_005_changes.md"
+    },
+    "notes": "Updated from onboarding call: account_005_onboarding.txt. 7 field(s) changed.",
+    "trello_card_id": null
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "account_id": "account_005",
+  "company_name": "Total Comfort Heating & Cooling",
+  "version_from": "v1",
+  "version_to": "v2",
+  "generated_at": "2026-03-05T04:41:36.648767Z",
+  "total_changes": 7,
+  "changes": [
+    {
+      "field": "emergency_routing_rules.fallback_instruction",
+      "change_type": "value_updated",
+      "old_value": "Give the caller both numbers and tell them to try both",
+      "new_value": "Give the caller both numbers and tell them to try both, someone will reach them within 20 minutes",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "emergency_routing_rules.primary_contact_name",
+      "change_type": "value_updated",
+      "old_value": "Lisa Chen",
+      "new_value": "Derek Walsh",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "emergency_routing_rules.primary_contact_phone",
+      "change_type": "value_updated",
+      "old_value": "206-555-0144",
+      "new_value": "206-555-0199",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "notes",
+      "change_type": "value_updated",
+      "old_value": "Tiered maintenance contract program, energy efficiency rebate program partnership",
+      "new_value": "Tiered maintenance contract program, energy efficiency rebate program partnership, customer portal at totalcomfortseattle.com/portal, Lennox certified",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "office_address",
+      "change_type": "value_updated",
+      "old_value": "7845 Aurora Avenue North, Suite 300, Seattle, WA 98103",
+      "new_value": "1023 Eastlake Avenue East, Suite 400, Seattle, WA 98102",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "services_supported",
+      "change_type": "items_removed",
+      "removed": [
+        "duct cleaning and sealing"
+      ],
+      "reason": "Removed during onboarding update"
+    },
+    {
+      "field": "tone_instructions",
+      "change_type": "value_updated",
+      "old_value": "Do not tell callers we're the cheapest, focus on quality and reliability",
+      "new_value": "Do not tell callers we're the cheapest, focus on quality and reliability, reference the Pacific Northwest weather when relevant",
+      "reason": "Updated during onboarding call"
+    }
+  ]
+}

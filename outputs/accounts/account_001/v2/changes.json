@@ -1,0 +1,53 @@
+{
+  "account_id": "account_001",
+  "company_name": "Arctic Air HVAC",
+  "version_from": "v1",
+  "version_to": "v2",
+  "generated_at": "2026-03-05T04:40:26.838233Z",
+  "total_changes": 6,
+  "changes": [
+    {
+      "field": "business_hours.days",
+      "change_type": "value_updated",
+      "old_value": "Monday-Friday, Saturday",
+      "new_value": "Monday-Friday",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "business_hours.exceptions",
+      "change_type": "value_updated",
+      "old_value": "Saturday 9AM-2PM, closed Sundays",
+      "new_value": "Saturdays are emergency-only",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "emergency_routing_rules.primary_contact_name",
+      "change_type": "value_updated",
+      "old_value": "Dave Kowalski",
+      "new_value": "Jordan Blake",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "emergency_routing_rules.primary_contact_phone",
+      "change_type": "value_updated",
+      "old_value": "214-555-0187",
+      "new_value": "214-555-0341",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "services_supported",
+      "change_type": "items_added",
+      "added": [
+        "EV charging station service"
+      ],
+      "reason": "Added during onboarding update"
+    },
+    {
+      "field": "tone_instructions",
+      "change_type": "value_updated",
+      "old_value": "be friendly",
+      "new_value": "be friendly, warm, and natural, avoid corporate-sounding empathy phrases like 'I understand your frustration'",
+      "reason": "Updated during onboarding call"
+    }
+  ]
+}

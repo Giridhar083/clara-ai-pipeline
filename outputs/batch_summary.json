@@ -1,0 +1,150 @@
+{
+  "batch_run_at": "2026-03-05T04:40:07.179439Z",
+  "completed_at": "2026-03-05T04:41:36.681562Z",
+  "duration_seconds": 89.5,
+  "total_files_processed": 10,
+  "total_errors": 0,
+  "pipeline_a": {
+    "files_attempted": 5,
+    "succeeded": 5,
+    "failed": 0,
+    "results": [
+      {
+        "status": "success",
+        "account_id": "account_001",
+        "company_name": "Arctic Air HVAC",
+        "version": "v1",
+        "memo_path": "outputs\\accounts\\account_001\\v1\\memo.json",
+        "agent_spec_path": "outputs\\accounts\\account_001\\v1\\agent_spec.json",
+        "task_id": "account_001_A_v1_2026-03-05",
+        "source_file": "account_001_demo.txt"
+      },
+      {
+        "status": "success",
+        "account_id": "account_002",
+        "company_name": "Flow Masters Plumbing",
+        "version": "v1",
+        "memo_path": "outputs\\accounts\\account_002\\v1\\memo.json",
+        "agent_spec_path": "outputs\\accounts\\account_002\\v1\\agent_spec.json",
+        "task_id": "account_002_A_v1_2026-03-05",
+        "source_file": "account_002_demo.txt"
+      },
+      {
+        "status": "success",
+        "account_id": "account_003",
+        "company_name": "GreenGuard Irrigation & Sprinklers",
+        "version": "v1",
+        "memo_path": "outputs\\accounts\\account_003\\v1\\memo.json",
+        "agent_spec_path": "outputs\\accounts\\account_003\\v1\\agent_spec.json",
+        "task_id": "account_003_A_v1_2026-03-05",
+        "source_file": "account_003_demo.txt"
+      },
+      {
+        "status": "success",
+        "account_id": "account_004",
+        "company_name": "PowerPro Electrical",
+        "version": "v1",
+        "memo_path": "outputs\\accounts\\account_004\\v1\\memo.json",
+        "agent_spec_path": "outputs\\accounts\\account_004\\v1\\agent_spec.json",
+        "task_id": "account_004_A_v1_2026-03-05",
+        "source_file": "account_004_demo.txt"
+      },
+      {
+        "status": "success",
+        "account_id": "account_005",
+        "company_name": "Total Comfort Heating & Cooling",
+        "version": "v1",
+        "memo_path": "outputs\\accounts\\account_005\\v1\\memo.json",
+        "agent_spec_path": "outputs\\accounts\\account_005\\v1\\agent_spec.json",
+        "task_id": "account_005_A_v1_2026-03-05",
+        "source_file": "account_005_demo.txt"
+      }
+    ]
+  },
+  "pipeline_b": {
+    "files_attempted": 5,
+    "succeeded": 5,
+    "failed": 0,
+    "results": [
+      {
+        "status": "success",
+        "account_id": "account_001",
+        "company_name": "Arctic Air HVAC",
+        "version": "v2",
+        "total_changes": 6,
+        "memo_path": "outputs\\accounts\\account_001\\v2\\memo.json",
+        "agent_spec_path": "outputs\\accounts\\account_001\\v2\\agent_spec.json",
+        "changes_json_path": "outputs\\accounts\\account_001\\v2\\changes.json",
+        "changes_md_path": "changelog\\account_001_changes.md",
+        "task_id": "account_001_B_v2_2026-03-05",
+        "source_file": "account_001_onboarding.txt"
+      },
+      {
+        "status": "success",
+        "account_id": "account_002",
+        "company_name": "Flow Masters Plumbing",
+        "version": "v2",
+        "total_changes": 15,
+        "memo_path": "outputs\\accounts\\account_002\\v2\\memo.json",
+        "agent_spec_path": "outputs\\accounts\\account_002\\v2\\agent_spec.json",
+        "changes_json_path": "outputs\\accounts\\account_002\\v2\\changes.json",
+        "changes_md_path": "changelog\\account_002_changes.md",
+        "task_id": "account_002_B_v2_2026-03-05",
+        "source_file": "account_002_onboarding.txt"
+      },
+      {
+        "status": "success",
+        "account_id": "account_003",
+        "company_name": "GreenGuard Irrigation & Sprinklers",
+        "version": "v2",
+        "total_changes": 10,
+        "memo_path": "outputs\\accounts\\account_003\\v2\\memo.json",
+        "agent_spec_path": "outputs\\accounts\\account_003\\v2\\agent_spec.json",
+        "changes_json_path": "outputs\\accounts\\account_003\\v2\\changes.json",
+        "changes_md_path": "changelog\\account_003_changes.md",
+        "task_id": "account_003_B_v2_2026-03-05",
+        "source_file": "account_003_onboarding.txt"
+      },
+      {
+        "status": "success",
+        "account_id": "account_004",
+        "company_name": "PowerPro Electrical",
+        "version": "v2",
+        "total_changes": 9,
+        "memo_path": "outputs\\accounts\\account_004\\v2\\memo.json",
+        "agent_spec_path": "outputs\\accounts\\account_004\\v2\\agent_spec.json",
+        "changes_json_path": "outputs\\accounts\\account_004\\v2\\changes.json",
+        "changes_md_path": "changelog\\account_004_changes.md",
+        "task_id": "account_004_B_v2_2026-03-05",
+        "source_file": "account_004_onboarding.txt"
+      },
+      {
+        "status": "success",
+        "account_id": "account_005",
+        "company_name": "Total Comfort Heating & Cooling",
+        "version": "v2",
+        "total_changes": 7,
+        "memo_path": "outputs\\accounts\\account_005\\v2\\memo.json",
+        "agent_spec_path": "outputs\\accounts\\account_005\\v2\\agent_spec.json",
+        "changes_json_path": "outputs\\accounts\\account_005\\v2\\changes.json",
+        "changes_md_path": "changelog\\account_005_changes.md",
+        "task_id": "account_005_B_v2_2026-03-05",
+        "source_file": "account_005_onboarding.txt"
+      }
+    ]
+  },
+  "errors": [],
+  "task_summary": {
+    "total_tasks": 10,
+    "pipeline_a": 5,
+    "pipeline_b": 5,
+    "accounts_processed": [
+      "account_001",
+      "account_004",
+      "account_003",
+      "account_005",
+      "account_002"
+    ],
+    "generated_at": "2026-03-05T04:41:36.700208Z"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "account_id": "account_002",
+  "company_name": "Flow Masters Plumbing",
+  "business_hours": {
+    "days": "Monday through Friday and Saturday",
+    "start": "7 AM Monday to Friday, 8 AM Saturday",
+    "end": "5 PM Monday to Friday, 12 PM Saturday",
+    "timezone": "Mountain time",
+    "exceptions": "null"
+  },
+  "office_address": "14800 North Northsight Blvd, Suite 221, Scottsdale, AZ 85260",
+  "services_supported": [
+    "drain cleaning",
+    "pipe repair and replacement",
+    "water heater install and repair",
+    "leak detection",
+    "sewer line",
+    "garbage disposal",
+    "toilet and faucet repair",
+    "bathroom and kitchen remodeling plumbing rough-in",
+    "tankless water heater installation"
+  ],
+  "emergency_definition": [
+    "active water leak",
+    "burst pipe",
+    "sewage backup inside the home",
+    "no hot water if there are kids or elderly in the house",
+    "flooded areas"
+  ],
+  "emergency_routing_rules": {
+    "primary_contact_name": "Maria Flores",
+    "primary_contact_phone": "602-555-0318",
+    "secondary_contact_name": "Carlos Mendez",
+    "secondary_contact_phone": "602-555-0133",
+    "rings_before_fallback": "3",
+    "fallback_instruction": "transfer to on-call plumber line"
+  },
+  "non_emergency_routing_rules": {
+    "action": "take message and schedule callback",
+    "callback_window": "within 30 minutes",
+    "message_destination": "office line"
+  },
+  "call_transfer_rules": {
+    "transfer_number": "602-555-0050",
+    "transfer_contact_name": "null",
+    "timeout_rings": "null",
+    "message_if_transfer_fails": "take a message and tell them we'll call back within 30 minutes",
+    "callback_window_if_fails": "within 30 minutes"
+  },
+  "special_routing_rules": [
+    {
+      "trigger": "calls about commercial services",
+      "action": "flag in the message for commercial coordinator to call back",
+      "contact_name": "null",
+      "contact_phone": "null"
+    },
+    {
+      "trigger": "calls about drain maintenance club membership",
+      "action": "mention we have a membership program and someone will explain the details",
+      "contact_name": "null",
+      "contact_phone": "null"
+    }
+  ],
+  "integration_constraints": [
+    "do not touch Jobber"
+  ],
+  "pricing_instructions": "pricing varies based on the unit and installation, and we'll give them an exact quote when a plumber assesses the job",
+  "after_hours_flow_summary": "handle emergencies only, empathetically explain non-emergency calls can be scheduled for the next morning",
+  "office_hours_flow_summary": "take caller info and transfer to office line, or take a message if no answer and schedule a callback within 30 minutes",
+  "tone_instructions": "be very friendly, like talking to a neighbor",
+  "questions_or_unknowns": [
+    "null"
+  ],
+  "notes": "VIP client list exists but agent won't know who's on it, treat everyone the same, sometimes accommodate same-day appointments"
+}

@@ -1,0 +1,76 @@
+{
+  "account_id": "account_004",
+  "company_name": "PowerPro Electrical",
+  "version_from": "v1",
+  "version_to": "v2",
+  "generated_at": "2026-03-05T04:41:17.833178Z",
+  "total_changes": 9,
+  "changes": [
+    {
+      "field": "business_hours.days",
+      "change_type": "value_updated",
+      "old_value": "Monday through Friday",
+      "new_value": "Monday through Friday and Saturday 8 AM to 1 PM for emergencies",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "emergency_definition",
+      "change_type": "items_added",
+      "added": [
+        "Any electrical issue at a medical facility or care home"
+      ],
+      "reason": "Added during onboarding update"
+    },
+    {
+      "field": "non_emergency_routing_rules.action",
+      "change_type": "value_updated",
+      "old_value": "Get their name, phone, address, and type of work, then transfer to scheduling line",
+      "new_value": "Get their name, phone, address, and type of work, then transfer to scheduling line. If a caller mentions a referral from a specific company or contractor, capture the referral source in the message",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "services_supported",
+      "change_type": "items_added",
+      "added": [
+        "Commercial LED lighting retrofits"
+      ],
+      "reason": "Added during onboarding update"
+    },
+    {
+      "field": "services_supported",
+      "change_type": "items_removed",
+      "removed": [
+        "Smart home integration"
+      ],
+      "reason": "Removed during onboarding update"
+    },
+    {
+      "field": "special_routing_rules[0].action",
+      "change_type": "value_updated",
+      "old_value": "Make a note and have the generator specialist call them back",
+      "new_value": "Route to Sam Patel at 404-555-0155",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "special_routing_rules[0].contact_name",
+      "change_type": "value_updated",
+      "old_value": "Generator specialist",
+      "new_value": "Sam Patel",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "special_routing_rules[0].contact_phone",
+      "change_type": "field_added",
+      "old_value": null,
+      "new_value": "404-555-0155",
+      "reason": "Updated during onboarding call"
+    },
+    {
+      "field": "tone_instructions",
+      "change_type": "field_added",
+      "old_value": null,
+      "new_value": "Acknowledge that electrical issues can feel scary or stressful for homeowners, be reassuring without making promises, and never use the phrase 'no problem'",
+      "reason": "Updated during onboarding call"
+    }
+  ]
+}
