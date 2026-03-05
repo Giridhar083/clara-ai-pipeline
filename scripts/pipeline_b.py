@@ -106,7 +106,7 @@ def run_pipeline_b(transcript_path: str, account_id: str = None) -> dict:
     with open(changes_json_path, "w") as f:
         json.dump(changes_json, f, indent=2)
 
-    with open(changes_md_path, "w") as f:
+    with open(changes_md_path, "w", encoding="utf-8") as f:
         f.write(changes_md)
 
     logger.info(f"  ✓ Saved v2 memo      → {memo_path}")
